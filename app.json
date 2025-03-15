@@ -6,7 +6,7 @@
         "video-extract",
         "pyrogram"
     ],
-    "repository": "https://github.com/nikhilsaini098/Saini-txt",
+    "repository": "https://github.com/nikhilsaini098/Saini-txt-direct",
     "success_url": "https://instagram.com/nikhil.saini.khe",
     "stack": "heroku-22",
     "env": {
@@ -33,7 +33,7 @@
             "url": "heroku/python"
         },
         {
-            "url": "https://github.com/nikhilsaini098/Saini-txt.git"
+            "url": "https://github.com/nikhilsaini098/Saini-txt-direct.git"
         }
     ]
     }
