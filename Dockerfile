@@ -6,5 +6,6 @@ RUN apt-get update -y && apt-get upgrade -y \
 
 COPY . /app/
 WORKDIR /app/
-RUN pip3 install --no-cache-dir --upgrade -r requirements.txt
+RUN pip3 install --no-cache-dir --upgrade -r requirements.txt \
+    && python3 -m pip install -U yt-dlp
 CMD gunicorn app:app & python3 main.py
