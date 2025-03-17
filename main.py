@@ -502,6 +502,8 @@ async def txt_handler(bot: Client, m: Message):
     
 @bot.on_message(filters.text & filters.private)
 async def text_handler(bot: Client, m: Message):
+    if m.from_user.is_bot:
+        return
     links = m.text
     match = re.search(r'https?://\S+', links)
     if match:
@@ -514,7 +516,7 @@ async def text_handler(bot: Client, m: Message):
     await m.delete()
 
     await editable.edit("**╭━━━━❰ᴇɴᴛᴇʀ ʀᴇꜱᴏʟᴜᴛɪᴏɴ❱━➣\n┣━━⪼ 🔹sᴇɴᴅ **144** for  144p\n┣━━⪼ 🔹sᴇɴᴅ **240** for  240p\n┣━━⪼ 🔹sᴇɴᴅ **360** for  360p\n┣━━⪼ 🔹sᴇɴᴅ **480** for  480p\n┣━━⪼ 🔹sᴇɴᴅ **720** for  720p\n┣━━⪼ 🔹sᴇɴᴅ **1080** for 1080p\n╰━━⌈⚡[🦋🇸‌🇦‌🇮‌🇳‌🇮‌🦋]⚡⌋━━➣ **")
-    input2: Message = await bot.listen(editable.chat.id)
+    input2: Message = await bot.listen(editable.chat.id, filters=filters.text & filters.user(m.from_user.id))
     raw_text2 = input2.text
     await input2.delete(True)
     try:
@@ -537,7 +539,7 @@ async def text_handler(bot: Client, m: Message):
           
     pw_token = f"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE3NDEyNjcwMDYuMTgzLCJkYXRhIjp7Il9pZCI6IjY1YzFlZTE1ODZmMTQ4MDAxMjdkOWIxOSIsInVzZXJuYW1lIjoiNjM5NDM4MzAzMCIsImZpcnN0TmFtZSI6IkRlZXBhbnNoIiwibGFzdE5hbWUiOiJNaXNocmEiLCJvcmdhbml6YXRpb24iOnsiX2lkIjoiNWViMzkzZWU5NWZhYjc0NjhhNzlkMTg5Iiwid2Vic2l0ZSI6InBoeXNpY3N3YWxsYWguY29tIiwibmFtZSI6IlBoeXNpY3N3YWxsYWgifSwiZW1haWwiOiJyYWplc2htaXNocmExOTc5MEBnbWFpbC5jb20iLCJyb2xlcyI6WyI1YjI3YmQ5NjU4NDJmOTUwYTc3OGM2ZWYiLCI1Y2M5NWEyZThiZGU0ZDY2ZGU0MDBiMzciXSwiY291bnRyeUdyb3VwIjoiSU4iLCJ0eXBlIjoiVVNFUiJ9LCJpYXQiOjE3NDA2NjIyMDZ9.hDoYcFo9uxxhajHudIZtqgtqd3G8QdNxQSS9qkdjNJg"
     await editable.edit("**Enter Your PW Token For 𝐌𝐏𝐃 𝐔𝐑𝐋**\n\n**Send  __0__  for use default**")
-    input4: Message = await bot.listen(editable.chat.id)
+    input4: Message = await bot.listen(editable.chat.id, filters=filters.text & filters.user(m.from_user.id))
     raw_text4 = input4.text
     await input4.delete(True)
     if raw_text4 == '0':
@@ -546,7 +548,7 @@ async def text_handler(bot: Client, m: Message):
         PW = raw_text4
         
     await editable.edit("⚪Send   ☞ **no** for **video** format\n\n🔘Send   ☞ **No** for **Document** format")
-    input6 = message = await bot.listen(editable.chat.id)
+    input6 = message = await bot.listen(editable.chat.id, filters=filters.text & filters.user(m.from_user.id))
     raw_text6 = input6.text
     await input6.delete(True)
     await editable.delete()
