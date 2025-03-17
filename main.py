@@ -399,10 +399,10 @@ async def txt_handler(bot: Client, m: Message):
                 cmd = f'yt-dlp -f "{ytf}" "{url}" -o "{name}.mp4"'
 
             try:  
-                cc = f'**——— ✦  {str(count).zfill(3)} ✦ ———**\n\n**🎞️ Title : ** {name1} **[{res}]**.mp4\n\n**📚 Course :** {b_name}\n\n**🌟 Extracted By : {CR}\n**'
-                cc1 = f'**——— ✦  {str(count).zfill(3)} ✦ ———**\n\n**📁 Title : ** {name1} .pdf\n\n**📚 Course :** {b_name}\n\n**🌟 Extracted By : {CR}\n**'
-                cczip = f'**——— ✦  {str(count).zfill(3)} ✦ ———**\n\n**📁 Title : ** {name1} .zip\n\n**📚 Course :** {b_name}\n\n**🌟 Extracted By : {CR}\n**'  
-                ccimg = f'**——— ✦  {str(count).zfill(3)} ✦ ———**\n\n**📁 Title : ** {name1} .jpg\n\n**📚 Course :** {b_name}\n\n**🌟 Extracted By : {CR}\n**'  
+                cc = f'**——— ✦  {str(count).zfill(3)} ✦ ———**\n\n**🎞️ Title : ** `{name1}` **[{res}]**.mp4\n\n**📚 Course :** `{b_name}`\n\n**🌟 Extracted By : `{CR}`\n**'
+                cc1 = f'**——— ✦  {str(count).zfill(3)} ✦ ———**\n\n**📁 Title : ** `{name1}` .pdf\n\n**📚 Course :** `{b_name}`\n\n**🌟 Extracted By : `{CR}`\n**'
+                cczip = f'**——— ✦  {str(count).zfill(3)} ✦ ———**\n\n**📁 Title : ** `{name1}` .zip\n\n**📚 Course :** `{b_name}`\n\n**🌟 Extracted By : `{CR}`\n**'  
+                ccimg = f'**——— ✦  {str(count).zfill(3)} ✦ ———**\n\n**📁 Title : ** `{name1}` .jpg\n\n**📚 Course :** `{b_name}`\n\n**🌟 Extracted By : `{CR}`\n**'  
                                 
                 if "drive" in url:
                     try:
@@ -481,7 +481,7 @@ async def txt_handler(bot: Client, m: Message):
                         continue
                           
                 else:
-                    Show = f"**⚡Dᴏᴡɴʟᴏᴀᴅ Sᴛᴀʀᴛᴇᴅ...⏳**\n\n🔗𝐈𝐧𝐝𝐞𝐱 » {str(count).zfill(3)}/{len(links)}\n\n**📚𝐓𝐢𝐭𝐥𝐞** » `{name}\n\n🍁𝐐𝐮𝐚𝐥𝐢𝐭𝐲 » {raw_text2}p`\n\n**✦𝐁𝐨𝐭 𝐌𝐚𝐝𝐞 𝐁𝐲 ✦ 𝙎𝘼𝙄𝙉𝙄 𝘽𝙊𝙏𝙎🐦"
+                    Show = f"**⚡Dᴏᴡɴʟᴏᴀᴅ Sᴛᴀʀᴛᴇᴅ...⏳**\n\n🔗𝐈𝐧𝐝𝐞𝐱 » {str(count).zfill(3)}/{len(links)}\n\n**📚𝐓𝐢𝐭𝐥𝐞** » `{name}`\n\n🍁𝐐𝐮𝐚𝐥𝐢𝐭𝐲 » {raw_text2}p\n\n**✦𝐁𝐨𝐭 𝐌𝐚𝐝𝐞 𝐁𝐲 ✦ `𝙎𝘼𝙄𝙉𝙄 𝘽𝙊𝙏𝙎🐦`"
                     prog = await m.reply_text(Show)
                     res_file = await helper.download_video(url, cmd, name)
                     filename = res_file
@@ -492,7 +492,7 @@ async def txt_handler(bot: Client, m: Message):
 
             except Exception as e:
                 await m.reply_text(
-                    f"⚠️ 𝐃𝐨𝐰𝐧𝐥𝐨𝐚𝐝𝐢𝐧𝐠 𝐈𝐧𝐭𝐞𝐫𝐮𝐩𝐭𝐞𝐝\n\n⚠️ 𝐍𝐚𝐦𝐞 » {name}\n"
+                    f"⚠️ 𝐃𝐨𝐰𝐧𝐥𝐨𝐚𝐝𝐢𝐧𝐠 𝐈𝐧𝐭𝐞𝐫𝐮𝐩𝐭𝐞𝐝\n\n⚠️ 𝐍𝐚𝐦𝐞 » `{name}`\n"
                 )
                 count += 1
                 continue
@@ -590,7 +590,7 @@ async def text_handler(bot: Client, m: Message):
              url =  f"https://madxapi-d0cbf6ac738c.herokuapp.com/{vid_id}/master.m3u8?token={PW}"
 
             name1 = links.replace("\t", "").replace(":", "").replace("/", "").replace("+", "").replace("#", "").replace("|", "").replace("@", "").replace("*", "").replace(".", "").replace("https", "").replace("http", "").strip()
-            name = f'{name1[:20]} 𝙎𝘼𝙄𝙉𝙄 𝘽𝙊𝙏𝙎'
+            name = f'{name1[:20]}'
             
             if 'cpvod.testbook.com' in url:
                url = requests.get(f'https://mon-key-3612a8154345.herokuapp.com/get_keys?url=https://cpvod.testbook.com/65f02cbd734b790a42d7317f/playlist.m3u8', headers={'x-access-token': 'eyJjb3Vyc2VJZCI6IjQ1NjY4NyIsInR1dG9ySWQiOm51bGwsIm9yZ0lkIjo0ODA2MTksImNhdGVnb3J5SWQiOm51bGx9r'}).json()['url']
@@ -619,8 +619,8 @@ async def text_handler(bot: Client, m: Message):
                 cmd = f'yt-dlp -f "{ytf}" "{url}" -o "{name}.mp4"'
 
             try:
-                cc = f'**📚 Title :** {name} [{res}].mp4\n**🔗 Video link :** <a href="{url}">__**CLICK HERE**__</a>\n\n**🌟 Extracted By : 𝙎𝘼𝙄𝙉𝙄 𝘽𝙊𝙏𝙎**'
-                cc1 = f'**📚 Title :** {name}\n**🔗 Link :** <a href="{url}">__**CLICK HERE**__</a>\n\n**🌟 Extracted By : 𝙎𝘼𝙄𝙉𝙄 𝘽𝙊𝙏𝙎**'
+                cc = f'**📚 Title :** `{name}` [{res}].mp4\n**🔗 Video link :** <a href="{link}">__**CLICK HERE**__</a>\n\n**🌟 Extracted By : `𝙎𝘼𝙄𝙉𝙄 𝘽𝙊𝙏𝙎`**'
+                cc1 = f'**📚 Title :** `{name}`\n**🔗 Link :** <a href="{link}">__**CLICK HERE**__</a>\n\n**🌟 Extracted By : `𝙎𝘼𝙄𝙉𝙄 𝘽𝙊𝙏𝙎`**'
                       
                 if "drive" in url:
                     try:
@@ -727,8 +727,8 @@ async def text_handler(bot: Client, m: Message):
                         pass
                                 
                 else:
-                    Show = f"**⚡Dᴏᴡɴʟᴏᴀᴅ Sᴛᴀʀᴛᴇᴅ...⏳**\n\n✦𝐁𝐨𝐭 𝐌𝐚𝐝𝐞 𝐁𝐲 ✦ 🇸‌🇦‌🇮‌🇳‌🇮‌🐦"
-                    prog = await m.reply_text(Show, disable_web_page_preview=True)
+                    Show = f"**⚡Dᴏᴡɴʟᴏᴀᴅ Sᴛᴀʀᴛᴇᴅ...⏳**\n\n✦𝐁𝐨𝐭 𝐌𝐚𝐝𝐞 𝐁𝐲 ✦ `🇸‌🇦‌🇮‌🇳‌🇮‌🐦`"
+                    prog = await m.reply_text(Show)
                     res_file = await helper.download_video(url, cmd, name)
                     filename = res_file
                     await prog.delete(True)
@@ -737,8 +737,8 @@ async def text_handler(bot: Client, m: Message):
                     time.sleep(1)
 
             except Exception as e:
-                    Error= f"⚠️ 𝐃𝐨𝐰𝐧𝐥𝐨𝐚𝐝𝐢𝐧𝐠 𝐈𝐧𝐭𝐞𝐫𝐮𝐩𝐭𝐞𝐝\n\n⚠️ 𝐍𝐚𝐦𝐞 » {name}\n"
-                    await m.reply_text(Error, disable_web_page_preview=True)
+                    Error= f"⚠️ 𝐃𝐨𝐰𝐧𝐥𝐨𝐚𝐝𝐢𝐧𝐠 𝐈𝐧𝐭𝐞𝐫𝐮𝐩𝐭𝐞𝐝\n\n⚠️ 𝐍𝐚𝐦𝐞 » `{name}`\n"
+                    await m.reply_text(Error)
                     count += 1
                     pass
 
