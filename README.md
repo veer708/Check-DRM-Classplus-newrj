@@ -1,6 +1,14 @@
 Welcome Dosto....
 NON-DRM bot made by @nikhil.saini.khe (TELEGRAM & Instagram)
 
+#command
+```
+/start start the bot
+/stop stop the bot
+/logs to see bot logs
+/cookies to update YouTube cookies
+Direct send link
+```
 Direct Deploy via click these button 
 
 [![Deploy To Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/nikhilsaini098/Saini-txt-direct)
