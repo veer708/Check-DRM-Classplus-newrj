@@ -518,7 +518,7 @@ async def txt_handler(bot: Client, m: Message):
 
     except Exception as e:
         await m.reply_text(e)
-    await m.reply_text("`🕊️Done Baby💞`")
+    await m.reply_text("<pre><code>Downloading Completed\n\nlist index out of range\n\n⌈✨❤️『𝙎𝘼𝙄𝙉𝙄 𝘽𝙊𝙏𝙎』❤️✨⌋</code></pre>")
     
 @bot.on_message(filters.text & filters.private)
 async def text_handler(bot: Client, m: Message):
@@ -613,7 +613,7 @@ async def text_handler(bot: Client, m: Message):
             
             if 'cpvod.testbook.com' in url:
                data = requests.get(f"https://api.masterapi.tech/get/get-hls-key?token=eyJjb3Vyc2VJZCI6IjQ1NjY4NyIsInR1dG9ySWQiOm51bGwsIm9yZ0lkIjo0ODA2MTksImNhdGVnb3J5SWQiOm51bGx9r").json()
-               url = http://api.masterapi.tech/akamai-player-v3?url={url}&hls-key={data}
+               url = f"http://api.masterapi.tech/akamai-player-v3?url={url}&hls-key={data}"
                #url0 = f"https://dragoapi.vercel.app/video/{url}"
                 
             if "/master.mpd" in url:
