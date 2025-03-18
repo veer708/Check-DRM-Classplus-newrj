@@ -267,7 +267,7 @@ async def txt_handler(bot: Client, m: Message):
         os.remove(x)
         return
    
-    await editable.edit(f"Total 🔗 links found are __**{len(links)}**__\n\nSend From where you want to download initial is `1`")
+    await editable.edit(f"""Total 🔗 links found are __**{len(links)}**__\n\nSend From where you want to download initial is `1`""")
     input0: Message = await bot.listen(editable.chat.id)
     raw_text = input0.text
     await input0.delete(True)
@@ -542,7 +542,7 @@ async def txt_handler(bot: Client, m: Message):
 
     except Exception as e:
         await m.reply_text(e)
-    await m.reply_text("<pre><code>Downloaded By ⌈✨『𝙎𝘼𝙄𝙉𝙄 𝘽𝙊𝙏𝙎』✨⌋</code></pre>")
+    await m.reply_text("""Downloaded By ⌈✨『𝙎𝘼𝙄𝙉𝙄 𝘽𝙊𝙏𝙎』✨⌋""")
     
 @bot.on_message(filters.text & filters.private)
 async def text_handler(bot: Client, m: Message):
