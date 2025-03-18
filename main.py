@@ -416,10 +416,10 @@ async def txt_handler(bot: Client, m: Message):
                 cczip = f'**——— ✦  {str(count).zfill(3)} ✦ ———**\n\n📁𝐓𝐢𝐭𝐥𝐞 » `{name1}` .zip\n\n<pre><code>📚𝐂𝐨𝐮𝐫𝐬𝐞 » {b_name}</code></pre>\n\n🌟𝐄𝐱𝐭𝐫𝐚𝐜𝐭𝐞𝐝 𝐁𝐲 » `{CR}`\n'  
                 ccimg = f'**——— ✦  {str(count).zfill(3)} ✦ ———**\n\n🖼️𝐓𝐢𝐭𝐥𝐞 » `{name1}` .jpg\n\n<pre><code>📚𝐂𝐨𝐮𝐫𝐬𝐞 » {b_name}</code></pre>\n\n🌟𝐄𝐱𝐭𝐫𝐚𝐜𝐭𝐞𝐝 𝐁𝐲 » `{CR}`\n'
 
-                if "youtube.com" in link or "youtu.be" in link:
+                if "youtube.com" in url or "youtu.be" in url:
                     try:
                         with YoutubeDL(ydl_opts) as ydl:
-                            info_dict = ydl.extract_info(link, download=True)
+                            info_dict = ydl.extract_info(url, download=True)
                             video_title = info_dict.get('title', None)
                             video_file = ydl.prepare_filename(info_dict)
                             await m.reply_document(document=video_file, caption=f"Downloaded: {video_title}")
