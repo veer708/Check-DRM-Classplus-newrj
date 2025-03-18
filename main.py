@@ -354,6 +354,23 @@ async def txt_handler(bot: Client, m: Message):
                         text = await resp.text()
                         url = re.search(r"(https://.*?playlist.m3u8.*?)\"", text).group(1)
 
+            if "iframe.mediadelivery.net" in url:
+             headers = {'Host': 'iframe.mediadelivery.net', headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:122.0) Gecko/20100101 Firefox/122.0','Accept-Language': 'en-US,en;q=0.5','Accept-Encoding': 'gzip, deflate, br','Dnt': '1','Sec-Gpc': '1','Te': 'trailers''Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8','Upgrade-Insecure-Requests': '1','Sec-Fetch-Dest': 'document','Sec-Fetch-Mode': 'navigate','Sec-Fetch-Site': 'cross-site','Sec-Fetch-User': '?1'}
+             params = (('url', f'{url}'),)
+             response = requests.get('https://iframe.mediadelivery.net/embed/{video_library_id}/{video_id}]\n: ', headers=headers, params=params)
+             url = response.json()['url']
+                pingHeaders = {'Origin': 'https://iframe.mediadelivery.net','Referer': 'https://iframe.mediadelivery.net/','Sec-Fetch-Site': 'same-site'}
+                mid_idx = player.find('/.drm')
+                start_idx = player.rfind('"', 0, mid_id) + 1
+                end_idx = player.find('/ping', mid_idx)
+                mediadelivery = player[start_idx:end_idx]
+                ping = mediadelivery + '/ping?hash=13892ac0903f805449a8dcbe781f896e&time=300&paused=false&resolution=720'
+                client.get(ping, headers=pingHeaders)
+                activate = mediadelivery + '/activate'
+                client.get(activate, headers=pingHeaders)
+                cmd = f'./{title}.mp4'['ffmpeg', '-i', tsFile, '-c', 'copy', '-bsf:a', 'aac_adtstoasc', mp4File]
+                
+
             if "acecwply" in url:
                 cmd = f'yt-dlp -o "{name}.%(ext)s" -f "bestvideo[height<={raw_text2}]+bestaudio" --hls-prefer-ffmpeg --no-keep-video --remux-video mkv --no-warning "{url}"'
                 
