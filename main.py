@@ -8,7 +8,6 @@ import requests
 import subprocess
 import urllib.parse
 import yt_dlp
-from yt_dlp import YoutubeDL
 import cloudscraper
 from logs import logging
 from bs4 import BeautifulSoup
@@ -304,8 +303,6 @@ async def txt_handler(bot: Client, m: Message):
     except Exception:
             res = "UN"
 
-    quality = raw_text2 if raw_text2 in ["144", "240", "360", "480", "720", "1080"] else "360"
-    
     await editable.edit("**Enter Your Name**\n\nSend `1` for use default")
     input3: Message = await bot.listen(editable.chat.id)
     raw_text3 = input3.text
@@ -352,13 +349,7 @@ async def txt_handler(bot: Client, m: Message):
             Vxy = links[i][1].replace("file/d/","uc?export=download&id=").replace("www.youtube-nocookie.com/embed", "youtu.be").replace("?modestbranding=1", "").replace("/view?usp=sharing","")
             url = "https://" + Vxy
             link0 = "https://" + Vxy
-
-            ydl_opts = {
-                'format': f'bestvideo[height<={quality}]+bestaudio/best[height<={quality}]',
-                'outtmpl': '%(title)s.%(ext)s',
-                'noplaylist': True
-            }
-           
+            
             if "visionias" in url:
                 async with ClientSession() as session:
                     async with session.get(url, headers={'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9', 'Accept-Language': 'en-US,en;q=0.9', 'Cache-Control': 'no-cache', 'Connection': 'keep-alive', 'Pragma': 'no-cache', 'Referer': 'http://www.visionias.in/', 'Sec-Fetch-Dest': 'iframe', 'Sec-Fetch-Mode': 'navigate', 'Sec-Fetch-Site': 'cross-site', 'Upgrade-Insecure-Requests': '1', 'User-Agent': 'Mozilla/5.0 (Linux; Android 12; RMX2121) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Mobile Safari/537.36', 'sec-ch-ua': '"Chromium";v="107", "Not=A?Brand";v="24"', 'sec-ch-ua-mobile': '?1', 'sec-ch-ua-platform': '"Android"',}) as resp:
@@ -396,37 +387,26 @@ async def txt_handler(bot: Client, m: Message):
                 bcov = 'bcov_auth=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE3MjQyMzg3OTEsImNvbiI6eyJpc0FkbWluIjpmYWxzZSwiYXVzZXIiOiJVMFZ6TkdGU2NuQlZjR3h5TkZwV09FYzBURGxOZHowOSIsImlkIjoiZEUxbmNuZFBNblJqVEROVmFWTlFWbXhRTkhoS2R6MDkiLCJmaXJzdF9uYW1lIjoiYVcxV05ITjVSemR6Vm10ak1WUlBSRkF5ZVNzM1VUMDkiLCJlbWFpbCI6Ik5Ga3hNVWhxUXpRNFJ6VlhiR0ppWTJoUk0wMVdNR0pVTlU5clJXSkRWbXRMTTBSU2FHRnhURTFTUlQwPSIsInBob25lIjoiVUhVMFZrOWFTbmQ1ZVcwd1pqUTViRzVSYVc5aGR6MDkiLCJhdmF0YXIiOiJLM1ZzY1M4elMwcDBRbmxrYms4M1JEbHZla05pVVQwOSIsInJlZmVycmFsX2NvZGUiOiJOalZFYzBkM1IyNTBSM3B3VUZWbVRtbHFRVXAwVVQwOSIsImRldmljZV90eXBlIjoiYW5kcm9pZCIsImRldmljZV92ZXJzaW9uIjoiUShBbmRyb2lkIDEwLjApIiwiZGV2aWNlX21vZGVsIjoiU2Ftc3VuZyBTTS1TOTE4QiIsInJlbW90ZV9hZGRyIjoiNTQuMjI2LjI1NS4xNjMsIDU0LjIyNi4yNTUuMTYzIn19.snDdd-PbaoC42OUhn5SJaEGxq0VzfdzO49WTmYgTx8ra_Lz66GySZykpd2SxIZCnrKR6-R10F5sUSrKATv1CDk9ruj_ltCjEkcRq8mAqAytDcEBp72-W0Z7DtGi8LdnY7Vd9Kpaf499P-y3-godolS_7ixClcYOnWxe2nSVD5C9c5HkyisrHTvf6NFAuQC_FD3TzByldbPVKK0ag1UnHRavX8MtttjshnRhv5gJs5DQWj4Ir_dkMcJ4JaVZO3z8j0OxVLjnmuaRBujT-1pavsr1CCzjTbAcBvdjUfvzEhObWfA1-Vl5Y4bUgRHhl1U-0hne4-5fF0aouyu71Y6W0eg'
                 url = url.split("bcov_auth")[0]+bcov
                 
-            #if "youtu" in url:
-               # ytf = f"b[height<={raw_text2}][ext=mp4]/bv[height<={raw_text2}][ext=mp4]+ba[ext=m4a]/b[ext=mp4]"
-            #else:
-               # ytf = f"b[height<={raw_text2}]/bv[height<={raw_text2}]+ba/b/bv+ba"
+            if "youtu" in url:
+                ytf = f"b[height<={raw_text2}][ext=mp4]/bv[height<={raw_text2}][ext=mp4]+ba[ext=m4a]/b[ext=mp4]"
+            else:
+                ytf = f"b[height<={raw_text2}]/bv[height<={raw_text2}]+ba/b/bv+ba"
             
             if "jw-prod" in url:
                 cmd = f'yt-dlp -o "{name}.mp4" "{url}"'
 
-           # elif "youtube.com" in url or "youtu.be" in url:
-                #cmd = f'yt-dlp --cookies youtube_cookies.txt -f "{ytf}" "{url}" -o "{name}".mp4'
+            elif "youtube.com" in url or "youtu.be" in url:
+                cmd = f'yt-dlp --cookies youtube_cookies.txt -f "{ytf}" "{url}" -o "{name}".mp4'
 
-            #else:
-               # cmd = f'yt-dlp -f "{ytf}" "{url}" -o "{name}.mp4"'
+            else:
+                cmd = f'yt-dlp -f "{ytf}" "{url}" -o "{name}.mp4"'
 
             try:  
                 cc = f'**——— ✦  {str(count).zfill(3)} ✦ ———**\n\n🎞️𝐓𝐢𝐭𝐥𝐞 » `{name1}` **[{res}]**.mp4\n\n<pre><code>📚𝐂𝐨𝐮𝐫𝐬𝐞 » {b_name}</code></pre>\n\n🌟𝐄𝐱𝐭𝐫𝐚𝐜𝐭𝐞𝐝 𝐁𝐲 » `{CR}`\n'
                 cc1 = f'**——— ✦  {str(count).zfill(3)} ✦ ———**\n\n📕𝐓𝐢𝐭𝐥𝐞 » `{name1}` .pdf\n\n<pre><code>📚𝐂𝐨𝐮𝐫𝐬𝐞 » {b_name}</code></pre>\n\n🌟𝐄𝐱𝐭𝐫𝐚𝐜𝐭𝐞𝐝 𝐁𝐲 » `{CR}`\n'
                 cczip = f'**——— ✦  {str(count).zfill(3)} ✦ ———**\n\n📁𝐓𝐢𝐭𝐥𝐞 » `{name1}` .zip\n\n<pre><code>📚𝐂𝐨𝐮𝐫𝐬𝐞 » {b_name}</code></pre>\n\n🌟𝐄𝐱𝐭𝐫𝐚𝐜𝐭𝐞𝐝 𝐁𝐲 » `{CR}`\n'  
                 ccimg = f'**——— ✦  {str(count).zfill(3)} ✦ ———**\n\n🖼️𝐓𝐢𝐭𝐥𝐞 » `{name1}` .jpg\n\n<pre><code>📚𝐂𝐨𝐮𝐫𝐬𝐞 » {b_name}</code></pre>\n\n🌟𝐄𝐱𝐭𝐫𝐚𝐜𝐭𝐞𝐝 𝐁𝐲 » `{CR}`\n'
-
-                if "youtube.com" in url or "youtu.be" in url:
-                    try:
-                        with YoutubeDL(ydl_opts) as ydl:
-                            info_dict = ydl.extract_info(url, download=True)
-                            video_title = info_dict.get('title', None)
-                            video_file = ydl.prepare_filename(info_dict)
-                            await m.reply_document(document=video_file, caption=f"Downloaded: {video_title}")
-                            os.remove(video_file)
-                    except Exception as e:
-                        await m.reply_text(f"Error downloading video: {e}")
-                
+                                
                 if "drive" in url:
                     try:
                         ka = await helper.download(url, name)
