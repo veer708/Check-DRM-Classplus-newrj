@@ -306,7 +306,7 @@ async def txt_handler(bot: Client, m: Message):
 
     quality = raw_text2 if raw_text2 in ["144", "240", "360", "480", "720", "1080"] else "360"
     ydl_opts = {
-        'format': f'bestvideo[height<={resolution}]+bestaudio/best[height<={resolution}]',
+        'format': f'bestvideo[height<={quality}]+bestaudio/best[height<={quality}]',
         'outtmpl': '%(title)s.%(ext)s',
         'noplaylist': True
     }
