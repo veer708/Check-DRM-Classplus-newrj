@@ -402,10 +402,10 @@ async def txt_handler(bot: Client, m: Message):
                 cmd = f'yt-dlp -f "{ytf}" "{url}" -o "{name}.mp4"'
 
             try:  
-                cc = f'**——— ✦  {str(count).zfill(3)} ✦ ———**\n\n**🎞️ Title : ** `{name1}` **[{res}]**.mp4\n\n*```*📚 Course :** {b_name}```\n\n**🌟 Extracted By : `{CR}`\n**'
-                cc1 = f'**——— ✦  {str(count).zfill(3)} ✦ ———**\n\n**📁 Title : ** `{name1}` .pdf\n\n```**📚 Course :** {b_name}```\n\n**🌟 Extracted By : `{CR}`\n**'
-                cczip = f'**——— ✦  {str(count).zfill(3)} ✦ ———**\n\n**📁 Title : ** `{name1}` .zip\n\n```**📚 Course :** {b_name}```\n\n**🌟 Extracted By : `{CR}`\n**'  
-                ccimg = f'**——— ✦  {str(count).zfill(3)} ✦ ———**\n\n**📁 Title : ** `{name1}` .jpg\n\n```**📚 Course :** {b_name}```\n\n**🌟 Extracted By : `{CR}`\n**'  
+                cc = f'**——— ✦  {str(count).zfill(3)} ✦ ———**\n\n**🎞️ Title : ** `{name1}` **[{res}]**.mp4\n\n<pre><code>**📚 Course :** `{b_name}`</code></pre>\n\n**🌟 Extracted By : `{CR}`\n**'
+                cc1 = f'**——— ✦  {str(count).zfill(3)} ✦ ———**\n\n**📁 Title : ** `{name1}` .pdf\n\n<pre><code>**📚 Course :** `{b_name}`</code></pre>\n\n**🌟 Extracted By : `{CR}`\n**'
+                cczip = f'**——— ✦  {str(count).zfill(3)} ✦ ———**\n\n**📁 Title : ** `{name1}` .zip\n\n<pre><code>**📚 Course :** `{b_name}`</code></pre>\n\n**🌟 Extracted By : `{CR}`\n**'  
+                ccimg = f'**——— ✦  {str(count).zfill(3)} ✦ ———**\n\n**📁 Title : ** `{name1}` .jpg\n\n<pre><code>**📚 Course :** `{b_name}`</code></pre>\n\n**🌟 Extracted By : `{CR}`\n**'  
                                 
                 if "drive" in url:
                     try:
