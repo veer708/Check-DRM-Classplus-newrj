@@ -281,7 +281,7 @@ async def txt_handler(bot: Client, m: Message):
     else:
         b_name = raw_text0
 
-    await editable.edit("╭━━━━❰ᴇɴᴛᴇʀ ʀᴇꜱᴏʟᴜᴛɪᴏɴ❱━━➣\n┣\n┣━━⪼ send `144`  for 144p\n┣\n┣━━⪼ send `240`  for 240p\n┣\n┣━━⪼ send `360`  for 360p\n┣\n┣━━⪼ send `480`  for 480p\n┣\n┣━━⪼ send `720`  for 720p\n┣\n┣\n┣━━⪼ send `1080` for 1080p\n┣\n╰━━⌈⚡[`🦋🇸‌🇦‌🇮‌🇳‌🇮‌🦋`]⚡⌋━━➣ ")
+    await editable.edit("╭━━━━❰ᴇɴᴛᴇʀ ʀᴇꜱᴏʟᴜᴛɪᴏɴ❱━━➣\n┣\n┣━━⪼ send `144`  for 144p\n┣\n┣━━⪼ send `240`  for 240p\n┣\n┣━━⪼ send `360`  for 360p\n┣\n┣━━⪼ send `480`  for 480p\n┣\n┣━━⪼ send `720`  for 720p\n┣\n┣━━⪼ send `1080` for 1080p\n┣\n╰━━⌈⚡[`🦋🇸‌🇦‌🇮‌🇳‌🇮‌🦋`]⚡⌋━━➣ ")
     input2: Message = await bot.listen(editable.chat.id)
     raw_text2 = input2.text
     await input2.delete(True)
@@ -402,10 +402,10 @@ async def txt_handler(bot: Client, m: Message):
                 cmd = f'yt-dlp -f "{ytf}" "{url}" -o "{name}.mp4"'
 
             try:  
-                cc = f'**——— ✦  {str(count).zfill(3)} ✦ ———**\n\n🎞️𝐍𝐚𝐦𝐞 » `{name1}` **[{res}]**.mp4\n\n<pre><code>📚 𝐂𝐨𝐮𝐫𝐬𝐞 » {b_name}</code></pre>\n\n🌟𝐄𝐱𝐭𝐫𝐚𝐜𝐭𝐞𝐝 𝐁𝐲 » `{CR}`\n'
-                cc1 = f'**——— ✦  {str(count).zfill(3)} ✦ ———**\n\n*📕𝐍𝐚𝐦𝐞 » `{name1}` .pdf\n\n<pre><code>📚 𝐂𝐨𝐮𝐫𝐬𝐞 » {b_name}</code></pre>\n\n🌟𝐄𝐱𝐭𝐫𝐚𝐜𝐭𝐞𝐝 𝐁𝐲 » `{CR}`\n'
-                cczip = f'**——— ✦  {str(count).zfill(3)} ✦ ———**\n\n📁𝐍𝐚𝐦𝐞 » `{name1}` .zip\n\n<pre><code>📚 𝐂𝐨𝐮𝐫𝐬𝐞 » {b_name}</code></pre>\n\n🌟𝐄𝐱𝐭𝐫𝐚𝐜𝐭𝐞𝐝 𝐁𝐲 » `{CR}`\n'  
-                ccimg = f'**——— ✦  {str(count).zfill(3)} ✦ ———**\n\n🖼️𝐍𝐚𝐦𝐞 » `{name1}` .jpg\n\n<pre><code>📚 𝐂𝐨𝐮𝐫𝐬𝐞 » {b_name}</code></pre>\n\n🌟𝐄𝐱𝐭𝐫𝐚𝐜𝐭𝐞𝐝 𝐁𝐲 » `{CR}`\n'
+                cc = f'**——— ✦  {str(count).zfill(3)} ✦ ———**\n\n🎞️𝐓𝐢𝐭𝐥𝐞 » `{name1}` **[{res}]**.mp4\n\n<pre><code>📚𝐂𝐨𝐮𝐫𝐬𝐞 » {b_name}</code></pre>\n\n🌟𝐄𝐱𝐭𝐫𝐚𝐜𝐭𝐞𝐝 𝐁𝐲 » `{CR}`\n'
+                cc1 = f'**——— ✦  {str(count).zfill(3)} ✦ ———**\n\n📕𝐓𝐢𝐭𝐥𝐞 » `{name1}` .pdf\n\n<pre><code>📚𝐂𝐨𝐮𝐫𝐬𝐞 » {b_name}</code></pre>\n\n🌟𝐄𝐱𝐭𝐫𝐚𝐜𝐭𝐞𝐝 𝐁𝐲 » `{CR}`\n'
+                cczip = f'**——— ✦  {str(count).zfill(3)} ✦ ———**\n\n📁𝐓𝐢𝐭𝐥𝐞 » `{name1}` .zip\n\n<pre><code>📚𝐂𝐨𝐮𝐫𝐬𝐞 » {b_name}</code></pre>\n\n🌟𝐄𝐱𝐭𝐫𝐚𝐜𝐭𝐞𝐝 𝐁𝐲 » `{CR}`\n'  
+                ccimg = f'**——— ✦  {str(count).zfill(3)} ✦ ———**\n\n🖼️𝐓𝐢𝐭𝐥𝐞 » `{name1}` .jpg\n\n<pre><code>📚𝐂𝐨𝐮𝐫𝐬𝐞 » {b_name}</code></pre>\n\n🌟𝐄𝐱𝐭𝐫𝐚𝐜𝐭𝐞𝐝 𝐁𝐲 » `{CR}`\n'
                                 
                 if "drive" in url:
                     try:
@@ -511,7 +511,7 @@ async def txt_handler(bot: Client, m: Message):
 
             except Exception as e:
                 await m.reply_text(
-                    f"⚠️ 𝐃𝐨𝐰𝐧𝐥𝐨𝐚𝐝𝐢𝐧𝐠 𝐈𝐧𝐭𝐞𝐫𝐮𝐩𝐭𝐞𝐝\n\n⚠️ 𝐍𝐚𝐦𝐞 » `{name}`\n\n🔗𝐋𝐢𝐧𝐤 » `{link0}`\n"
+                    f"⚠️ 𝐃𝐨𝐰𝐧𝐥𝐨𝐚𝐝𝐢𝐧𝐠 𝐈𝐧𝐭𝐞𝐫𝐮𝐩𝐭𝐞𝐝\n\n⚠️ 𝐓𝐢𝐭𝐥𝐞 » `{name}`\n\n🔗𝐋𝐢𝐧𝐤 » `{link0}`\n"
                 )
                 count += 1
                 continue
@@ -535,7 +535,7 @@ async def text_handler(bot: Client, m: Message):
     editable = await m.reply_text(f"**🔹Processing your link...\n🔁Please wait...⏳**")
     await m.delete()
 
-    await editable.edit("╭━━━━❰ᴇɴᴛᴇʀ ʀᴇꜱᴏʟᴜᴛɪᴏɴ❱━━➣\n┣\n┣━━⪼ send `144`  for 144p\n┣\n┣━━⪼ send `240`  for 240p\n┣\n┣━━⪼ send `360`  for 360p\n┣\n┣━━⪼ send `480`  for 480p\n┣\n┣━━⪼ send `720`  for 720p\n┣\n┣\n┣━━⪼ send `1080` for 1080p\n┣\n╰━━⌈⚡[`🦋🇸‌🇦‌🇮‌🇳‌🇮‌🦋`]⚡⌋━━➣ ")
+    await editable.edit("╭━━━━❰ᴇɴᴛᴇʀ ʀᴇꜱᴏʟᴜᴛɪᴏɴ❱━━➣\n┣\n┣━━⪼ send `144`  for 144p\n┣\n┣━━⪼ send `240`  for 240p\n┣\n┣━━⪼ send `360`  for 360p\n┣\n┣━━⪼ send `480`  for 480p\n┣\n┣━━⪼ send `720`  for 720p\n┣\n┣━━⪼ send `1080` for 1080p\n┣\n╰━━⌈⚡[`🦋🇸‌🇦‌🇮‌🇳‌🇮‌🦋`]⚡⌋━━➣ ")
     input2: Message = await bot.listen(editable.chat.id, filters=filters.text & filters.user(m.from_user.id))
     raw_text2 = input2.text
     await input2.delete(True)
@@ -638,8 +638,8 @@ async def text_handler(bot: Client, m: Message):
                 cmd = f'yt-dlp -f "{ytf}" "{url}" -o "{name}.mp4"'
 
             try:
-                cc = f'🎞️𝐍𝐚𝐦𝐞 » `{name}` [{res}].mp4\n🔗𝐋𝐢𝐧𝐤 » <a href="{link}">__**CLICK HERE**__</a>\n\n🌟𝐄𝐱𝐭𝐫𝐚𝐜𝐭𝐞𝐝 𝐁𝐲 » `𝙎𝘼𝙄𝙉𝙄 𝘽𝙊𝙏𝙎`'
-                cc1 = f'📕𝐍𝐚𝐦𝐞 » `{name}`\n🔗𝐋𝐢𝐧𝐤 » <a href="{link}">__**CLICK HERE**__</a>\n\n🌟𝐄𝐱𝐭𝐫𝐚𝐜𝐭𝐞𝐝 𝐁𝐲 » `𝙎𝘼𝙄𝙉𝙄 𝘽𝙊𝙏𝙎`'
+                cc = f'🎞️𝐓𝐢𝐭𝐥𝐞 » `{name}` [{res}].mp4\n🔗𝐋𝐢𝐧𝐤 » <a href="{link}">__**CLICK HERE**__</a>\n\n🌟𝐄𝐱𝐭𝐫𝐚𝐜𝐭𝐞𝐝 𝐁𝐲 » `𝙎𝘼𝙄𝙉𝙄 𝘽𝙊𝙏𝙎`'
+                cc1 = f'📕𝐓𝐢𝐭𝐥𝐞 » `{name}`\n🔗𝐋𝐢𝐧𝐤 » <a href="{link}">__**CLICK HERE**__</a>\n\n🌟𝐄𝐱𝐭𝐫𝐚𝐜𝐭𝐞𝐝 𝐁𝐲 » `𝙎𝘼𝙄𝙉𝙄 𝘽𝙊𝙏𝙎`'
                       
                 if "drive" in url:
                     try:
@@ -772,7 +772,7 @@ async def text_handler(bot: Client, m: Message):
                     time.sleep(1)
 
             except Exception as e:
-                    Error= f"⚠️ 𝐃𝐨𝐰𝐧𝐥𝐨𝐚𝐝𝐢𝐧𝐠 𝐈𝐧𝐭𝐞𝐫𝐮𝐩𝐭𝐞𝐝\n\n⚠️ 𝐍𝐚𝐦𝐞 » `{name}`\n\n🔗𝐋𝐢𝐧𝐤 » `{link}`"
+                    Error= f"⚠️ 𝐃𝐨𝐰𝐧𝐥𝐨𝐚𝐝𝐢𝐧𝐠 𝐈𝐧𝐭𝐞𝐫𝐮𝐩𝐭𝐞𝐝\n\n⚠️ 𝐓𝐢𝐭𝐥𝐞 » `{name}`\n\n🔗𝐋𝐢𝐧𝐤 » `{link}`"
                     await m.reply_text(Error)
                     count += 1
                     pass
