@@ -305,11 +305,6 @@ async def txt_handler(bot: Client, m: Message):
             res = "UN"
 
     quality = raw_text2 if raw_text2 in ["144", "240", "360", "480", "720", "1080"] else "360"
-    ydl_opts = {
-        'format': f'bestvideo[height<={quality}]+bestaudio/best[height<={quality}]',
-        'outtmpl': '%(title)s.%(ext)s',
-        'noplaylist': True
-    }
     
     await editable.edit("**Enter Your Name**\n\nSend `1` for use default")
     input3: Message = await bot.listen(editable.chat.id)
@@ -357,7 +352,13 @@ async def txt_handler(bot: Client, m: Message):
             Vxy = links[i][1].replace("file/d/","uc?export=download&id=").replace("www.youtube-nocookie.com/embed", "youtu.be").replace("?modestbranding=1", "").replace("/view?usp=sharing","")
             url = "https://" + Vxy
             link0 = "https://" + Vxy
-        
+
+            ydl_opts = {
+                'format': f'bestvideo[height<={quality}]+bestaudio/best[height<={quality}]',
+                'outtmpl': '%(title)s.%(ext)s',
+                'noplaylist': True
+            }
+           
             if "visionias" in url:
                 async with ClientSession() as session:
                     async with session.get(url, headers={'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9', 'Accept-Language': 'en-US,en;q=0.9', 'Cache-Control': 'no-cache', 'Connection': 'keep-alive', 'Pragma': 'no-cache', 'Referer': 'http://www.visionias.in/', 'Sec-Fetch-Dest': 'iframe', 'Sec-Fetch-Mode': 'navigate', 'Sec-Fetch-Site': 'cross-site', 'Upgrade-Insecure-Requests': '1', 'User-Agent': 'Mozilla/5.0 (Linux; Android 12; RMX2121) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Mobile Safari/537.36', 'sec-ch-ua': '"Chromium";v="107", "Not=A?Brand";v="24"', 'sec-ch-ua-mobile': '?1', 'sec-ch-ua-platform': '"Android"',}) as resp:
