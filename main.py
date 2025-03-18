@@ -28,7 +28,7 @@ from pyrogram.types.messages_and_media import message
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
 photologo = 'https://tinypic.host/images/2025/02/07/DeWatermark.ai_1738952933236-1.png'
-photoyt = 'https://i.ibb.co/bgzZW56K/IMG-20250202-062354.jpg'
+photoyt = 'https://tinypic.host/images/2025/03/18/YouTube-Logo.wine.png'
 
 credit ="𝙎𝘼𝙄𝙉𝙄 𝘽𝙊𝙏𝙎" 
 # Initialize the bot
@@ -609,7 +609,7 @@ async def text_handler(bot: Client, m: Message):
     try:
             Vxy = link.replace("file/d/","uc?export=download&id=").replace("www.youtube-nocookie.com/embed", "youtu.be").replace("?modestbranding=1", "").replace("/view?usp=sharing","")
             url = Vxy
-            linkcpvod = "https://dragoapi.vercel.app/classplus?link=" + Vxy
+            linkcpvod = "https://dragoapi.vercel.app/video/" + Vxy
         
             if "visionias" in url:
                 async with ClientSession() as session:
