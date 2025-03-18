@@ -453,7 +453,7 @@ async def txt_handler(bot: Client, m: Message):
                         count += 1
                         continue
 
-                elif ".pdf*" in url:
+                elif ".pdf" in url:
                     try:
                         url_part, key_part = url.split("*")
                         url = f"https://dragoapi.vercel.app/pdf/{url_part}*{key_part}"
@@ -700,7 +700,7 @@ async def text_handler(bot: Client, m: Message):
                         count += 1
                         pass    
 
-                elif ".pdf*" in url:
+                elif ".pdf" in url:
                     try:
                         url_part, key_part = url.split("*")
                         url = f"https://dragoapi.vercel.app/pdf/{url_part}*{key_part}"
