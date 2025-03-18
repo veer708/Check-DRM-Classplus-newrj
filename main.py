@@ -455,7 +455,8 @@ async def txt_handler(bot: Client, m: Message):
 
                 elif ".pdf*" in url:
                     try:
-                        url = f"https://dragoapi.vercel.app/pdf/{url}*{key}"
+                        url_part, key_part = url.split("*")
+                        url = f"https://dragoapi.vercel.app/pdf/{url_part}*{key_part}"
                         cmd = f'yt-dlp -o "{name}.pdf" "{url}"'
                         download_cmd = f"{cmd} -R 25 --fragment-retries 25"
                         os.system(download_cmd)
@@ -701,7 +702,8 @@ async def text_handler(bot: Client, m: Message):
 
                 elif ".pdf*" in url:
                     try:
-                        url = f"https://dragoapi.vercel.app/pdf/{url}*{key}"
+                        url_part, key_part = url.split("*")
+                        url = f"https://dragoapi.vercel.app/pdf/{url_part}*{key_part}"
                         cmd = f'yt-dlp -o "{name}.pdf" "{url}"'
                         download_cmd = f"{cmd} -R 25 --fragment-retries 25"
                         os.system(download_cmd)
