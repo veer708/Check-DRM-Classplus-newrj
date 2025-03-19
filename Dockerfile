@@ -4,6 +4,9 @@ RUN apt-get update -y && apt-get upgrade -y \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
+# Add buildpacks from app.json
+RUN curl -sSL https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest/tarball/master | tar -C /usr/local/bin -xz
+
 COPY . /app/
 WORKDIR /app/
 RUN pip3 install --no-cache-dir --upgrade pip \
