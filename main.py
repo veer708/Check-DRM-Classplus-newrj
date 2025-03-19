@@ -288,14 +288,14 @@ async def youtube_to_txt(client, message: Message):
     # Ask the user for the custom file name
     file_name_message = await message.reply_text(
         f"<pre><code>🔤 Send file name (without extension)</code></pre>\n"
-        f"**Send   `1`   for default name**\n"
+        f"**✨ Send  `1`  for Default**\n"
         f"<pre><code>{title}</code></pre>\n"
     )
 
     input4: Message = await bot.listen(message.chat.id, filters=filters.text & filters.user(message.from_user.id))
     raw_text4 = input4.text
-    await input4.delete(True)
     await file_name_message.delete(True)
+    await input4.delete(True)
     if raw_text4 == '1':
        custom_file_name  = title
     else:
