@@ -288,7 +288,7 @@ async def youtube_to_txt(client, message: Message):
         # Ask the user for the custom file name
         file_name_message = await message.reply_text(
             f"<pre><code>🔤 Send file name (without extension)</code></pre>\n"
-            f"....Send `1` for....\n"
+            f"**      Send `1` for**\n"
             f"<pre><code>{title}</code></pre>\n\n"
         )
 
