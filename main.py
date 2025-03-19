@@ -254,7 +254,7 @@ async def youtube_to_txt(client, message: Message):
     user_id = str(message.from_user.id)
     
     await message.reply_text(
-        "<pre><code>Welcome to the YouTube to Text Converter!</code></pre>\n"
+        "<pre><code>Welcome to the YouTube to .txt🗃️ Converter!</code></pre>\n"
         "<pre><code>Please Send YouTube Playlist link for convert into a `.txt` file.</code></pre>\n"
     )
 
