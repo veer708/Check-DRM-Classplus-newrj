@@ -1,7 +1,7 @@
 {
   "name": "Saini-txt-direct",
   "description": "A Python application for text direction.",
-  "repository": "https://github.com/nikhilsaini098/Saini-txt-direct",
+  "repository": "https://www.github.com/nikhilsaini098/Saini-txt-direct",
   "keywords": ["python", "flask"],
   "addons": ["heroku-postgresql"],
   "buildpacks": [
