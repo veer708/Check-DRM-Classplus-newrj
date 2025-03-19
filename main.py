@@ -254,20 +254,12 @@ async def youtube_to_txt(client, message: Message):
     user_id = str(message.from_user.id)
     
     await message.reply_text(
-        "<pre><code>Welcome to the YouTube to Text Converter!</code></pre>\n\n"
-        "<pre><code>Please send the YouTube Playlist link</code></pre>\n\n"
-        "<pre><code>I convert into a `.txt` file.</code></pre>\n\n"
+        "<pre><code>Welcome to the YouTube to Text Converter!</code></pre>\n"
+        "<pre><code>Please send the YouTube Playlist link</code></pre>\n"
+        "<pre><code>I convert into a `.txt` file.</code></pre>\n"
     )
 
-    try:
-        input_message: Message = await bot.listen(message.chat.id, timeout=10)
-
-        if not input_message.text:
-            await message.reply_text(
-                "<pre><code>🚨 Error : Please send a valid YouTube Playlist link</code></pre>"
-            )
-            return
-
+        input_message: Message = await bot.listen(message.chat.id)
         youtube_link = input_message.text.strip()
 
         # Fetch the YouTube information using yt-dlp with cookies
