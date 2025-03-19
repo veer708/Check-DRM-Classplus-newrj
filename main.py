@@ -189,7 +189,7 @@ async def start_command(bot: Client, message: Message):
     # Caption for the image
     caption = (
         "🌟 Welcome Boss😸! 🌟\n\n"
-        "➽ I am powerful uploader bot 📥\n\n➽ For Extract Link Send link (with https://)\n\n➽ 𝐔𝐬𝐞 /saini for Extract .txt file 🗃️\n\n➽ 𝐔𝐬𝐞 /Stop for **Stop** ⛔ working process \n\n➽ 𝐔𝐬𝐞 /cookies for update YouTube cookies.\n\n➽ 𝐔𝐬𝐞 /logs to see your bot logs.\n\n➽ 𝐌𝐚𝐝𝐞 𝐁𝐲: 𝙎𝘼𝙄𝙉𝙄 𝘽𝙊𝙏𝙎 🦁"
+        "➽ I am powerful uploader bot 📥\n\n➽ For Extract Link Send link (with https://)\n\n➽ 𝐔𝐬𝐞 /saini for Extract .txt file 🗃️\n\n➽ 𝐔𝐬𝐞 /Stop for **Stop** ⛔ working process\n\n➽ 𝐔𝐬𝐞 /y2t for YT Playlist into .txt\n\n➽ 𝐔𝐬𝐞 /cookies for update YouTube cookies.\n\n➽ 𝐔𝐬𝐞 /logs to see your bot logs.\n\n➽ 𝐌𝐚𝐝𝐞 𝐁𝐲: 𝙎𝘼𝙄𝙉𝙄 𝘽𝙊𝙏𝙎 🦁"
     )
 
     await asyncio.sleep(1)
