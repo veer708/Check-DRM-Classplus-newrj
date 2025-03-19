@@ -295,6 +295,7 @@ async def youtube_to_txt(client, message: Message):
     input4: Message = await bot.listen(message.chat.id, filters=filters.text & filters.user(message.from_user.id))
     raw_text4 = input4.text
     await input4.delete(True)
+    await file_name_message.delete(True)
     if raw_text4 == '1':
        custom_file_name  = title
     else:
