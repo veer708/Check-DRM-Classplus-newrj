@@ -321,7 +321,7 @@ async def youtube_to_txt(client, message: Message):
         # Send the generated text file to the user with a pretty caption
         await message.reply_document(
             document=txt_file,
-            caption=f"<pre><code>YouTube links text file : `{custom_file_name}.txt`</code></pre>\n"
+            caption=f"<pre><code>{custom_file_name}.txt</code></pre>\n"
         )
 
         # Remove the temporary text file after sending
