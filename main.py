@@ -834,6 +834,99 @@ async def text_handler(bot: Client, m: Message):
 
     except Exception as e:
         await m.reply_text(e)   
+
+@bot.on_message(filters.command(["y2t"]))
+async def youtube_to_txt(client, message: Message):
+    user_id = str(message.from_user.id)
+    
+    await message.reply_text(
+        "<pre><code>Welcome to the YouTube to Text Converter!</code></pre>\n\n"
+        "<pre><code>Please send the YouTube Playlist link</code></pre>\n\n"
+        "<pre><code>I convert into a `.txt` file.</code></pre>\n\n"
+    )
+
+    try:
+        input_message: Message = await bot.listen(message.chat.id, timeout=10)
+
+        if not input_message.text:
+            await message.reply_text(
+                "<pre><code>🚨 Error : Please send a valid YouTube Playlist link</code></pre>"
+            )
+            return
+
+        youtube_link = input_message.text.strip()
+
+        # Fetch the YouTube information using yt-dlp with cookies
+        ydl_opts = {
+            'quiet': True,
+            'extract_flat': True,
+            'skip_download': True,
+            'force_generic_extractor': True,
+            'forcejson': True,
+            'cookies': 'youtube_cookies.txt'  # Specify the cookies file
+        }
+
+        with yt_dlp.YoutubeDL(ydl_opts) as ydl:
+            try:
+                result = ydl.extract_info(youtube_link, download=False)
+                if 'entries' in result:
+                    title = result.get('title', 'youtube_playlist')
+                else:
+                    title = result.get('title', 'youtube_video')
+            except yt_dlp.utils.DownloadError as e:
+                await message.reply_text(
+                    f"<pre><code>🚨 **Error**: {str(e)}.\nPlease ensure the link is valid and try again.</code></pre>"
+                )
+                return
+
+        # Ask the user for the custom file name
+        file_name_message = await message.reply_text(
+            f"<pre><code>🔤 Send file name (without extension)</code></pre>\n\n"
+            f"<pre><code>Send 1 for : '{title}'.</code></pre>\n\n"
+        )
+
+        input4: Message = await bot.listen(editable.chat.id, filters=filters.text & filters.user(m.from_user.id))
+        raw_text4 = input4.text
+        await input4.delete(True)
+        if raw_text4 == '0':
+           custom_file_name  = title
+        else:
+           custom_file_name = raw_text4
+        
+        # Extract the YouTube links
+        videos = []
+        if 'entries' in result:
+            for entry in result['entries']:
+                video_title = entry.get('title', 'No title')
+                url = entry['url']
+                videos.append(f"{video_title}: {url}")
+        else:
+            video_title = result.get('title', 'No title')
+            url = result['url']
+            videos.append(f"{video_title}: {url}")
+
+        # Create and save the .txt file with the custom name
+        txt_file = os.path.join("downloads", f'{custom_file_name}.txt')
+        os.makedirs(os.path.dirname(txt_file), exist_ok=True)  # Ensure the directory exists
+        with open(txt_file, 'w') as f:
+            f.write('\n'.join(videos))
+
+        # Send the generated text file to the user with a pretty caption
+        await message.reply_document(
+            document=txt_file,
+            caption=f"🎉 **Here is your YouTube links text file**: `{custom_file_name}.txt`\n\n"
+                    "You can now download your content! 📥"
+        )
+
+        # Remove the temporary text file after sending
+        os.remove(txt_file)
+
+    except Exception as e:
+        # In case of any error, send a generic error message
+        await message.reply_text(
+            f"🚨 **An unexpected error occurred**: {str(e)}.\nPlease try again or contact support if the issue persists."
+        )
+        
                         
 bot.run()
 if __name__ == "__main__":
