@@ -45,19 +45,7 @@ bot = Client(
 )
 
 def ensure_ffmpeg_in_path():
-    try:
-        # Check if ffmpeg is available
-        subprocess.run(["ffmpeg", "-version"], check=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-        print("ffmpeg is already in the PATH.")
-    except (subprocess.CalledProcessError, FileNotFoundError):
-        # If ffmpeg is not found, add it to the PATH
-        ffmpeg_path = "/app/vendor/ffmpeg"  # This is a common path for Heroku buildpacks; adjust if necessary
-        os.environ["PATH"] += os.pathsep + ffmpeg_path
-        print(f"ffmpeg has been added to the PATH: {ffmpeg_path}")
 
-# Call the function to ensure ffmpeg is in the PATH
-ensure_ffmpeg_in_path()
-    
 # Define aiohttp routes
 routes = web.RouteTableDef()
 
