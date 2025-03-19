@@ -259,80 +259,79 @@ async def youtube_to_txt(client, message: Message):
         "<pre><code>I convert into a `.txt` file.</code></pre>\n"
     )
 
-        input_message: Message = await bot.listen(message.chat.id)
-        youtube_link = input_message.text.strip()
+    input_message: Message = await bot.listen(message.chat.id)
+    youtube_link = input_message.text.strip()
 
-        # Fetch the YouTube information using yt-dlp with cookies
-        ydl_opts = {
-            'quiet': True,
-            'extract_flat': True,
-            'skip_download': True,
-            'force_generic_extractor': True,
-            'forcejson': True,
-            'cookies': 'youtube_cookies.txt'  # Specify the cookies file
-        }
+    # Fetch the YouTube information using yt-dlp with cookies
+    ydl_opts = {
+        'quiet': True,
+        'extract_flat': True,
+        'skip_download': True,
+        'force_generic_extractor': True,
+        'forcejson': True,
+        'cookies': 'youtube_cookies.txt'  # Specify the cookies file
+    }
 
-        with yt_dlp.YoutubeDL(ydl_opts) as ydl:
-            try:
-                result = ydl.extract_info(youtube_link, download=False)
-                if 'entries' in result:
-                    title = result.get('title', 'youtube_playlist')
-                else:
-                    title = result.get('title', 'youtube_video')
-            except yt_dlp.utils.DownloadError as e:
-                await message.reply_text(
-                    f"<pre><code>🚨 **Error**: {str(e)} send valid link.</code></pre>"
-                )
-                return
+    with yt_dlp.YoutubeDL(ydl_opts) as ydl:
+        try:
+            result = ydl.extract_info(youtube_link, download=False)
+            if 'entries' in result:
+                title = result.get('title', 'youtube_playlist')
+            else:
+                title = result.get('title', 'youtube_video')
+        except yt_dlp.utils.DownloadError as e:
+            await message.reply_text(
+                f"<pre><code>🚨 Error occurred {str(e)}</code></pre>"
+            )
+            return
 
-        # Ask the user for the custom file name
-        file_name_message = await message.reply_text(
-            f"<pre><code>🔤 Send file name (without extension)</code></pre>\n"
-            f"**      Send `1` for**\n"
-            f"<pre><code>{title}</code></pre>\n\n"
-        )
+    # Ask the user for the custom file name
+    file_name_message = await message.reply_text(
+        f"<pre><code>🔤 Send file name (without extension)</code></pre>\n"
+        f"**      Send `1` for**\n"
+        f"<pre><code>{title}</code></pre>\n"
+    )
 
-        input4: Message = await bot.listen(message.chat.id, filters=filters.text & filters.user(message.from_user.id))
-        raw_text4 = input4.text
-        await input4.delete(True)
-        if raw_text4 == '1':
-           custom_file_name  = title
-        else:
-           custom_file_name = raw_text4
-        
-        # Extract the YouTube links
-        videos = []
-        if 'entries' in result:
-            for entry in result['entries']:
-                video_title = entry.get('title', 'No title')
-                url = entry['url']
-                videos.append(f"{video_title}: {url}")
-        else:
-            video_title = result.get('title', 'No title')
-            url = result['url']
+    input4: Message = await bot.listen(message.chat.id, filters=filters.text & filters.user(message.from_user.id))
+    raw_text4 = input4.text
+    await input4.delete(True)
+    if raw_text4 == '1':
+       custom_file_name  = title
+    else:
+       custom_file_name = raw_text4
+    
+    # Extract the YouTube links
+    videos = []
+    if 'entries' in result:
+        for entry in result['entries']:
+            video_title = entry.get('title', 'No title')
+            url = entry['url']
             videos.append(f"{video_title}: {url}")
+    else:
+        video_title = result.get('title', 'No title')
+        url = result['url']
+        videos.append(f"{video_title}: {url}")
 
-        # Create and save the .txt file with the custom name
-        txt_file = os.path.join("downloads", f'{custom_file_name}.txt')
-        os.makedirs(os.path.dirname(txt_file), exist_ok=True)  # Ensure the directory exists
-        with open(txt_file, 'w') as f:
-            f.write('\n'.join(videos))
+    # Create and save the .txt file with the custom name
+    txt_file = os.path.join("downloads", f'{custom_file_name}.txt')
+    os.makedirs(os.path.dirname(txt_file), exist_ok=True)  # Ensure the directory exists
+    with open(txt_file, 'w') as f:
+        f.write('\n'.join(videos))
 
-        # Send the generated text file to the user with a pretty caption
-        await message.reply_document(
-            document=txt_file,
-            caption=f"<pre><code>{custom_file_name}.txt</code></pre>\n"
-        )
+    # Send the generated text file to the user with a pretty caption
+    await message.reply_document(
+        document=txt_file,
+        caption=f"<pre><code>{custom_file_name}.txt</code></pre>\n"
+    )
 
-        # Remove the temporary text file after sending
-        os.remove(txt_file)
+    # Remove the temporary text file after sending
+    os.remove(txt_file)
 
-    except Exception as e:
-        # In case of any error, send a generic error message
-        await message.reply_text(
-            f"<pre><code>🚨 Error : {str(e)}  Please try again </code></pre>"
-        )
-        
+except Exception as e:
+    # In case of any error, send a generic error message
+    await message.reply_text(
+        f"<pre><code>🚨 Error occurred {str(e)}</code></pre>"
+    )   
 
 @bot.on_message(filters.command(["saini"]) )
 async def txt_handler(bot: Client, m: Message):
