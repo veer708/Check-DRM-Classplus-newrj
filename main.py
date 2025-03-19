@@ -281,7 +281,7 @@ async def youtube_to_txt(client, message: Message):
                     title = result.get('title', 'youtube_video')
             except yt_dlp.utils.DownloadError as e:
                 await message.reply_text(
-                    f"<pre><code>🚨 **Error**: {str(e)}.\nPlease ensure the link is valid and try again.</code></pre>"
+                    f"<pre><code>🚨 **Error**: {str(e)} send valid link.</code></pre>"
                 )
                 return
 
@@ -330,7 +330,7 @@ async def youtube_to_txt(client, message: Message):
     except Exception as e:
         # In case of any error, send a generic error message
         await message.reply_text(
-            f"<pre><code>🚨 Error : {str(e)}</code></pre>\n\n<pre><code>Please try again </code></pre>"
+            f"<pre><code>🚨 Error : {str(e)}  Please try again </code></pre>"
         )
         
 
