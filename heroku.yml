@@ -1,8 +1,5 @@
 build:
   docker:
     worker: Dockerfile
-buildpacks:
-  - heroku/python
-  - https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest.git
 run:
   worker: python3 main.py
