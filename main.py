@@ -44,8 +44,6 @@ bot = Client(
     bot_token=BOT_TOKEN
 )
 
-def ensure_ffmpeg_in_path():
-
 # Define aiohttp routes
 routes = web.RouteTableDef()
 
