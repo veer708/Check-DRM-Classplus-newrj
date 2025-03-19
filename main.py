@@ -327,11 +327,11 @@ async def youtube_to_txt(client, message: Message):
     # Remove the temporary text file after sending
     os.remove(txt_file)
 
-except Exception as e:
-    # In case of any error, send a generic error message
-    await message.reply_text(
-        f"<pre><code>🚨 Error occurred {str(e)}</code></pre>"
-    )   
+ try:
+ except Exception as e:
+     await message.reply_text(
+         f"<pre><code>🚨 Error occurred {str(e)}</code></pre>"
+     )
 
 @bot.on_message(filters.command(["saini"]) )
 async def txt_handler(bot: Client, m: Message):
