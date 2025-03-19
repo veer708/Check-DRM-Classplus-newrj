@@ -1,10 +1,9 @@
-
 {
-    "name": "SAINI BOTS",
-    "description": "Download videos from various websites using this Telegram bot.",
+    "name": "NIKHIL",
+    "description": "Bot For Telegram",
     "logo": "https://tinypic.host/images/2025/02/07/DeWatermark.ai_1738952933236-1.png",
     "keywords": [
-        "drm-video-dl",
+        "text-video",
         "video-extract",
         "pyrogram"
     ],
@@ -13,26 +12,29 @@
     "stack": "container",
     "env": {
         "API_ID": {
-            "description": "Enter your Telegram API ID.",
+            "description": "Enter Your Api Id",
+            "value": "",
             "required": true
         },
         "API_HASH": {
-            "description": "Enter your Telegram API Hash.",
+            "description": "Enter Your Api Hash",
+            "value": "",
             "required": true
         },
         "BOT_TOKEN": {
-            "description": "Enter your Telegram Bot Token.",
+            "description": "Enter Your Telegram Bot Token",
+            "value": "",
+            "required": true
+        },
+        "BOT_NAME": {
+            "description": "Enter Your Telegram Bot Name",
+            "value": "",
             "required": true
         },
         "OWNER_ID": {
-            "description": "User ID of Bot Owner",
+            "description": "Enter your OWNER ID",
+            "value": "",
             "required": true
-        }
-    },
-    "formation": {
-        "worker": {
-            "quantity": 1,
-            "size": "standard-2x"
         }
     },
     "addons": [],
@@ -44,4 +46,4 @@
             "url": "https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest.git"
         }
     ]
-}
+        }
