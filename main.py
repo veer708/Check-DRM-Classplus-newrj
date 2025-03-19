@@ -299,7 +299,7 @@ async def youtube_to_txt(client, message: Message):
             f"<pre><code>Send 1 for : '{title}'.</code></pre>\n\n"
         )
 
-        input4: Message = await bot.listen(editable.chat.id, filters=filters.text & filters.user(m.from_user.id))
+        input4: Message = await bot.listen(message.chat.id, filters=filters.text & filters.user(m.from_user.id))
         raw_text4 = input4.text
         await input4.delete(True)
         if raw_text4 == '0':
