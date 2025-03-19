@@ -255,11 +255,12 @@ async def youtube_to_txt(client, message: Message):
     
     await message.reply_text(
         "<pre><code>Welcome to the YouTube to Text Converter!</code></pre>\n"
-        "<pre><code>Please send the YouTube Playlist link. I convert into a `.txt` file.</code></pre>\n"
+        "<pre><code>Please Send YouTube Playlist link for convert into a `.txt` file.</code></pre>\n"
     )
 
     input_message: Message = await bot.listen(message.chat.id)
     youtube_link = input_message.text.strip()
+    await input_message.delete(True)
 
     # Fetch the YouTube information using yt-dlp with cookies
     ydl_opts = {
@@ -287,7 +288,7 @@ async def youtube_to_txt(client, message: Message):
     # Ask the user for the custom file name
     file_name_message = await message.reply_text(
         f"<pre><code>🔤 Send file name (without extension)</code></pre>\n"
-        f"**                Send    `1`    for**\n"
+        f"**                        Send      `1`      for**\n"
         f"<pre><code>{title}</code></pre>\n"
     )
 
@@ -320,7 +321,7 @@ async def youtube_to_txt(client, message: Message):
     # Send the generated text file to the user with a pretty caption
     await message.reply_document(
         document=txt_file,
-        caption=f"<pre><code>{custom_file_name}.txt</code></pre>\n"
+        caption=f"<pre><code>{custom_file_name}.txt</code></pre>\n<a href="{youtube_link}">__**Click here to open Playlist**__</a>\n"
     )
 
     # Remove the temporary text file after sending
