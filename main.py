@@ -660,7 +660,7 @@ async def txt_handler(bot: Client, m: Message):
                            f"🔗𝐋𝐢𝐧𝐤 » `{link0}`\n" \
                            f"<pre><code>✦𝐁𝐨𝐭 𝐌𝐚𝐝𝐞 𝐁𝐲 ✦ `𝙎𝘼𝙄𝙉𝙄 𝘽𝙊𝙏𝙎🐦`</code></pre>"
                     prog = await m.reply_text(Show)
-                    res_file = await helper.download_video(url, cmd, name, progress_bar, m, start_time)
+                    res_file = await helper.download_video(url, cmd, name, prog, m, start_time)
                     filename = res_file
                     await prog.delete(True)
                     await emoji_message.delete()
