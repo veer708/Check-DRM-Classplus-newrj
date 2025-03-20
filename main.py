@@ -673,7 +673,7 @@ async def txt_handler(bot: Client, m: Message):
                             file.write(data)
                     Show = f"<pre><code>**⚡𝐃𝐨𝐰𝐧𝐥𝐨𝐚𝐝𝐢𝐧𝐠 𝐒𝐭𝐚𝐫𝐭𝐞𝐝...⏳**</code></pre>\n" \
                            f"<pre><code>📊𝐓𝐱𝐭 𝐏𝐫𝐨𝐠𝐫𝐞𝐬𝐬 » {progress_links:.2f}%</code></pre>\n" \
-                           f"<pre><code>🚀𝐃𝐨𝐰𝐧𝐥𝐨𝐚𝐝𝐢𝐧𝐠 𝐏𝐫𝐨𝐠𝐫𝐞𝐬𝐬 » {progress_video:.2f}%</code></pre>"
+                           f"<pre><code>🚀𝐃𝐨𝐰𝐧𝐥𝐨𝐚𝐝𝐢𝐧𝐠 𝐏𝐫𝐨𝐠𝐫𝐞𝐬𝐬 » {progress_video:.2f}%</code></pre>\n" \
                            f"<pre><code>🔗𝐈𝐧𝐝𝐞𝐱 » {str(count)}/{len(links)}</code></pre>\n" \
                            f"<pre><code>🖇️𝐑𝐞𝐦𝐚𝐢𝐧𝐢𝐧𝐠 𝐋𝐢𝐧𝐤𝐬 » {remaining_links}</code></pre>\n" \
                            f"📚𝐓𝐢𝐭𝐥𝐞 » `{name}`\n" \
