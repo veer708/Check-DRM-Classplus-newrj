@@ -145,6 +145,7 @@ async def help_handler(client: Client, m: Message):
     await bot.send_message(m.chat.id, text= (
         " 🎉 Welcome to DRM Bot! 🎉\n"
         "You can have access to download all Non-DRM+AES Encrypted URLs 🔐 including:\n"
+        "send /help for free users.\n\n"
         "<pre><code>• 📚 Appx Zip+Encrypted Url\n"
         "• 🎓 Classplus DRM+ NDRM\n"
         "• 🧑‍🏫 PhysicsWallah DRM\n"
