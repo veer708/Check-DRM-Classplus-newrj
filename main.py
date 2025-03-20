@@ -164,6 +164,20 @@ async def help_handler(client: Client, m: Message):
         "If you want to buy membership of the bot, feel free to contact 𝙎𝘼𝙄𝙉𝙄 𝘽𝙊𝙏𝙎 🦁"
     ))
 
+@bot.on_message(filters.command(["help"]))
+async def txt_handler(client: Client, m: Message):
+    await bot.send_message(m.chat.id, text= (
+        " 🎉**Congrats! You are using 𝙎𝘼𝙄𝙉𝙄 𝘽𝙊𝙏𝙎**:\n\n"
+        "01. Send /start - To Check Bot \n\n"
+        "02. Send /saini - for extract txt file\n\n"
+        "03. Send /y2t - YouTube to .txt Convert\n\n"
+        "04. Send /logs - To see Bot Working Logs\n\n"
+        "05. Send /cookies - To update YT cookies.\n\n"
+        "06. Send /stop - Stop the Running Task. 🚫\n\n"
+        "If you have any questions, feel free to ask! 💬"
+        )
+    ) 
+
 
 @bot.on_message(filters.command("cookies") & filters.private)
 async def cookies_handler(client: Client, m: Message):
