@@ -140,6 +140,33 @@ image_urls = [
 
 cookies_file_path= "youtube_cookies.txt"
 
+@bot.on_message(filters.command(["help"]))
+async def help_handler(client: Client, m: Message):
+    await bot.send_message(m.chat.id, text= (
+        " 🎉 Welcome to DRM Bot! 🎉\n"
+        "You can have access to download all Non-DRM+AES Encrypted URLs 🔐 including:\n"
+        "<pre><code>\n"
+        "• 📚 Appx Zip+Encrypted Url\n"
+        "• 🎓 Classplus DRM+ NDRM\n"
+        "• 🧑‍🏫 PhysicsWallah DRM\n"
+        "• 📚 CareerWill + PDF\n"
+        "• 🎓 Khan GS\n"
+        "• 🎓 Study Iq DRM\n"
+        "• 🚀 APPX + APPX Enc PDF\n"
+        "• 🎓 Vimeo Protection\n"
+        "• 🎓 Brightcove Protection\n"
+        "• 🎓 Visionias Protection\n"
+        "• 🎓 Zoom Video\n"
+        "• 🎓 Utkarsh Protection(Video + PDF)\n"
+        "• 🎓 All Non DRM+AES Encrypted URLs\n"
+        "• 🎓 MPD URLs if the key is known (e.g., Mpd_url?key=key XX:XX)\n"
+        "</code></pre>\n\n"
+        "🚀 You are not subscribed to any plan yet!\n\n"
+        "💵 Monthly Plan: ₹ 1200\n"
+        "If you want to buy membership of the bot, feel free to contact the Bot Admin."
+    ))
+
+
 @bot.on_message(filters.command("cookies") & filters.private)
 async def cookies_handler(client: Client, m: Message):
     await m.reply_text(
