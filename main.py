@@ -146,7 +146,8 @@ async def help_handler(client: Client, m: Message):
         " 🎉 Welcome to DRM Bot! 🎉\n\n"
         "You can have access to download all Non-DRM+AES Encrypted URLs 🔐 including:\n\n"
         "send /help for free users.\n\n"
-        "<pre><code>• 📚 Appx Zip+Encrypted Url\n"
+        "<pre><quote>\n"
+        "• 📚 Appx Zip+Encrypted Url\n"
         "• 🎓 Classplus DRM+ NDRM\n"
         "• 🧑‍🏫 PhysicsWallah DRM\n"
         "• 📚 CareerWill + PDF\n"
@@ -159,7 +160,8 @@ async def help_handler(client: Client, m: Message):
         "• 🎓 Zoom Video\n"
         "• 🎓 Utkarsh Protection(Video + PDF)\n"
         "• 🎓 All Non DRM+AES Encrypted URLs\n"
-        "• 🎓 MPD URLs if the key is known (e.g., Mpd_url?key=key XX:XX)</code></pre>\n\n"
+        "• 🎓 MPD URLs if the key is known (e.g., Mpd_url?key=key XX:XX)"
+        "</quote></pre>\n\n"
         "🚀 You are not subscribed to any plan yet!\n\n"
         "If you want to buy membership of the bot, feel free to contact 𝙎𝘼𝙄𝙉𝙄 𝘽𝙊𝙏𝙎 🦁"
     ))
@@ -174,7 +176,7 @@ async def txt_handler(client: Client, m: Message):
         "04. Send /logs - To see Bot Working Logs\n\n"
         "05. Send /cookies - To update YT cookies.\n\n"
         "06. Send /stop - Stop the Running Task. 🚫\n\n"
-        "\n\n"
+        "➽. Direct Send Link For Extract (with https://)\n\n"
         "If you have any questions, feel free to ask! 💬"
         )
     ) 
