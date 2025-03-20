@@ -142,29 +142,30 @@ cookies_file_path= "youtube_cookies.txt"
 
 @bot.on_message(filters.command(["drm"]))
 async def help_handler(client: Client, m: Message):
-    await bot.send_message(m.chat.id, text=(
-        "🎉 Welcome to DRM Bot! 🎉\n\n"
-        "You can have access to download all Non-DRM+AES Encrypted URLs 🔐 including:\n\n"
-        "send /help for free users.\n\n"
-        "&lt;quote&gt;\n"
-        "• 📚 Appx Zip+Encrypted Url\n"
-        "• 🎓 Classplus DRM+ NDRM\n"
-        "• 🧑‍🏫 PhysicsWallah DRM\n"
-        "• 📚 CareerWill + PDF\n"
-        "• 🎓 Khan GS\n"
-        "• 🎓 Study Iq DRM\n"
-        "• 🚀 APPX + APPX Enc PDF\n"
-        "• 🎓 Vimeo Protection\n"
-        "• 🎓 Brightcove Protection\n"
-        "• 🎓 Visionias Protection\n"
-        "• 🎓 Zoom Video\n"
-        "• 🎓 Utkarsh Protection(Video + PDF)\n"
-        "• 🎓 All Non DRM+AES Encrypted URLs\n"
-        "• 🎓 MPD URLs if the key is known (e.g., Mpd_url?key=key XX:XX)"
-        "&lt;/quote&gt;\n\n"
-        "🚀 You are not subscribed to any plan yet!\n\n"
-        "If you want to buy membership of the bot, feel free to contact 𝙎𝘼𝙄𝙉𝙄 𝘽𝙊𝙏𝙎 🦁"
-    ))
+    await bot.send_message(m.chat.id, text="""
+🎉 Welcome to DRM Bot! 🎉
+
+You can have access to download all Non-DRM+AES Encrypted URLs 🔐 including:
+<pre><quote>
+• 📚 Appx Zip+Encrypted Url
+• 🎓 Classplus DRM+ NDRM
+• 🧑‍🏫 PhysicsWallah DRM
+• 📚 CareerWill + PDF
+• 🎓 Khan GS
+• 🎓 Study Iq DRM
+• 🚀 APPX + APPX Enc PDF
+• 🎓 Vimeo Protection
+• 🎓 Brightcove Protection
+• 🎓 Visionias Protection
+• 🎓 Zoom Video
+• 🎓 Utkarsh Protection(Video + PDF)
+• 🎓 All Non DRM+AES Encrypted URLs
+• 🎓 MPD URLs if the key is known (e.g., Mpd_url?key=key XX:XX)
+</quote></pre>
+🚀 You are not subscribed to any plan yet!
+
+If you want to buy membership of the bot, feel free to contact 𝙎𝘼𝙄𝙉𝙄 𝘽𝙊𝙏𝙎 🦁
+    """)
 
 @bot.on_message(filters.command(["help"]))
 async def txt_handler(client: Client, m: Message):
