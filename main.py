@@ -143,8 +143,8 @@ cookies_file_path= "youtube_cookies.txt"
 @bot.on_message(filters.command(["drm"]))
 async def help_handler(client: Client, m: Message):
     await bot.send_message(m.chat.id, text= (
-        " 🎉 Welcome to DRM Bot! 🎉\n"
-        "You can have access to download all Non-DRM+AES Encrypted URLs 🔐 including:\n"
+        " 🎉 Welcome to DRM Bot! 🎉\n\n"
+        "You can have access to download all Non-DRM+AES Encrypted URLs 🔐 including:\n\n"
         "send /help for free users.\n\n"
         "<pre><code>• 📚 Appx Zip+Encrypted Url\n"
         "• 🎓 Classplus DRM+ NDRM\n"
@@ -174,6 +174,7 @@ async def txt_handler(client: Client, m: Message):
         "04. Send /logs - To see Bot Working Logs\n\n"
         "05. Send /cookies - To update YT cookies.\n\n"
         "06. Send /stop - Stop the Running Task. 🚫\n\n"
+        "\n\n"
         "If you have any questions, feel free to ask! 💬"
         )
     ) 
