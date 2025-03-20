@@ -168,7 +168,7 @@ async def help_handler(client: Client, m: Message):
 @bot.on_message(filters.command(["help"]))
 async def txt_handler(client: Client, m: Message):
     await bot.send_message(m.chat.id, text= (
-        " 🎉**Congrats! You are using 𝙎𝘼𝙄𝙉𝙄 𝘽𝙊𝙏𝙎**:\n\n"
+        "<pre><code> 🎉Congrats! You are using 𝙎𝘼𝙄𝙉𝙄 𝘽𝙊𝙏𝙎:</code></pre>\n\n"
         "01. Send /start - To Check Bot \n\n"
         "02. Send /saini - for extract txt file\n\n"
         "03. Send /y2t - YouTube to .txt Convert\n\n"
@@ -176,7 +176,7 @@ async def txt_handler(client: Client, m: Message):
         "05. Send /cookies - To update YT cookies.\n\n"
         "06. Send /stop - Stop the Running Task. 🚫\n\n"
         "➽. Direct Send Link For Extract (with https://)\n\n"
-        "If you have any questions, feel free to ask! 💬"
+        "<pre><code>If you have any questions, feel free to ask! 💬</code></pre>"
         )
     ) 
 
@@ -229,8 +229,8 @@ async def start_command(bot: Client, message: Message):
     
     # Caption for the image
     caption = (
-        "🌟 Welcome Boss😸! 🌟\n\n"
-        "➽ I am Powerful DRM Uploader Bot 📥\n\n➽ 𝐔𝐬𝐞 /drm for use this Bot.\n\n➽ 𝐌𝐚𝐝𝐞 𝐁𝐲: 𝙎𝘼𝙄𝙉𝙄 𝘽𝙊𝙏𝙎 🦁"
+        "<pre><code>🌟 Welcome Boss😸! 🌟</code></pre>\n\n"
+        "➽ I am Powerful DRM Uploader Bot 📥\n\n➽ 𝐔𝐬𝐞 /drm for use this Bot.\n\n<pre><code>➽ 𝐌𝐚𝐝𝐞 𝐁𝐲: 𝙎𝘼𝙄𝙉𝙄 𝘽𝙊𝙏𝙎 🦁</code></pre>"
     )
 
     await asyncio.sleep(1)
