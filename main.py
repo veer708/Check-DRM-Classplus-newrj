@@ -470,7 +470,6 @@ async def txt_handler(bot: Client, m: Message):
     )
 
     count =int(raw_text)    
-    start_time = time.time()
     try:
         for i in range(arg-1, len(links)):
             Vxy = links[i][1].replace("file/d/","uc?export=download&id=").replace("www.youtube-nocookie.com/embed", "youtu.be").replace("?modestbranding=1", "").replace("/view?usp=sharing","")
@@ -660,7 +659,7 @@ async def txt_handler(bot: Client, m: Message):
                            f"🔗𝐋𝐢𝐧𝐤 » `{link0}`\n" \
                            f"<pre><code>✦𝐁𝐨𝐭 𝐌𝐚𝐝𝐞 𝐁𝐲 ✦ `𝙎𝘼𝙄𝙉𝙄 𝘽𝙊𝙏𝙎🐦`</code></pre>"
                     prog = await m.reply_text(Show)
-                    res_file = await helper.download_video(url, cmd, name, prog, m, start_time)
+                    res_file = await helper.download_video(url, cmd, name)
                     filename = res_file
                     await prog.delete(True)
                     await emoji_message.delete()
