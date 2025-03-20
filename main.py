@@ -162,20 +162,20 @@ async def help_handler(client: Client, m: Message):
         "• 🎓 All Non DRM+AES Encrypted URLs\n"
         "• 🎓 MPD URLs if the key is known (e.g., Mpd_url?key=key XX:XX)</code></pre>\n\n"
         "🚀 You are not subscribed to any plan yet!\n\n"
-        "<pre><code>If you want to buy membership of the bot, feel free to contact 𝙎𝘼𝙄𝙉𝙄 𝘽𝙊𝙏𝙎 🦁</code></pre>"
+        "<pre><code>Contact to 𝙎𝘼𝙄𝙉𝙄 𝘽𝙊𝙏𝙎 for buy membership.</code></pre>"
     ))
 
 @bot.on_message(filters.command(["help"]))
 async def txt_handler(client: Client, m: Message):
     await bot.send_message(m.chat.id, text= (
-        "<pre><code> 🎉Congrats! You are using 𝙎𝘼𝙄𝙉𝙄 𝘽𝙊𝙏𝙎:</code></pre>\n\n"
-        "01. Send /start - To Check Bot \n\n"
-        "02. Send /saini - for extract txt file\n\n"
-        "03. Send /y2t - YouTube to .txt Convert\n\n"
-        "04. Send /logs - To see Bot Working Logs\n\n"
-        "05. Send /cookies - To update YT cookies.\n\n"
-        "06. Send /stop - Stop the Running Task. 🚫\n\n"
-        "➽. Direct Send Link For Extract (with https://)\n\n"
+        "<pre><code> 🎉Congrats! You are using 𝙎𝘼𝙄𝙉𝙄 𝘽𝙊𝙏𝙎:</code></pre>\n┣\n"
+        "┣⪼01. Send /start - To Check Bot \n┣\n"
+        "┣⪼02. Send /saini - for extract txt file\n┣\n"
+        "┣⪼03. Send /y2t - YouTube to .txt Convert\n┣\n"
+        "┣⪼04. Send /logs - To see Bot Working Logs\n┣\n"
+        "┣⪼05. Send /cookies - To update YT cookies.\n┣\n"
+        "┣⪼06. Send /stop - Stop the Running Task. 🚫\n┣\n"
+        "┣━━⪼  Direct Send Link For Extract (with https://)\n┣\n"
         "<pre><code>If you have any questions, feel free to ask! 💬</code></pre>"
         )
     ) 
@@ -230,7 +230,7 @@ async def start_command(bot: Client, message: Message):
     # Caption for the image
     caption = (
         "<pre><code>🌟 Welcome Boss😸! 🌟</code></pre>\n\n"
-        "➽ I am Powerful DRM Uploader Bot 📥\n\n➽ 𝐔𝐬𝐞 /drm for use this Bot.\n\n<pre><code>➽ 𝐌𝐚𝐝𝐞 𝐁𝐲: 𝙎𝘼𝙄𝙉𝙄 𝘽𝙊𝙏𝙎 🦁</code></pre>"
+        "➽ I am Powerful DRM Uploader Bot 📥\n\n➽ 𝐔𝐬𝐞 /drm for use this Bot.\n\n<pre><code> 𝐌𝐚𝐝𝐞 𝐁𝐲 : 𝙎𝘼𝙄𝙉𝙄 𝘽𝙊𝙏𝙎 🦁</code></pre>"
     )
 
     await asyncio.sleep(1)
