@@ -140,13 +140,12 @@ image_urls = [
 
 cookies_file_path= "youtube_cookies.txt"
 
-@bot.on_message(filters.command(["help"]))
+@bot.on_message(filters.command(["drm"]))
 async def help_handler(client: Client, m: Message):
     await bot.send_message(m.chat.id, text= (
         " 🎉 Welcome to DRM Bot! 🎉\n"
         "You can have access to download all Non-DRM+AES Encrypted URLs 🔐 including:\n"
-        "<pre><code>\n"
-        "• 📚 Appx Zip+Encrypted Url\n"
+        "<pre><code>• 📚 Appx Zip+Encrypted Url\n"
         "• 🎓 Classplus DRM+ NDRM\n"
         "• 🧑‍🏫 PhysicsWallah DRM\n"
         "• 📚 CareerWill + PDF\n"
@@ -159,11 +158,9 @@ async def help_handler(client: Client, m: Message):
         "• 🎓 Zoom Video\n"
         "• 🎓 Utkarsh Protection(Video + PDF)\n"
         "• 🎓 All Non DRM+AES Encrypted URLs\n"
-        "• 🎓 MPD URLs if the key is known (e.g., Mpd_url?key=key XX:XX)\n"
-        "</code></pre>\n\n"
+        "• 🎓 MPD URLs if the key is known (e.g., Mpd_url?key=key XX:XX)</code></pre>\n\n"
         "🚀 You are not subscribed to any plan yet!\n\n"
-        "💵 Monthly Plan: ₹ 1200\n"
-        "If you want to buy membership of the bot, feel free to contact the Bot Admin."
+        "If you want to buy membership of the bot, feel free to contact 𝙎𝘼𝙄𝙉𝙄 𝘽𝙊𝙏𝙎 🦁"
     ))
 
 
