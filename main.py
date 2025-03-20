@@ -5,6 +5,7 @@ import json
 import time
 import asyncio
 import requests
+from tqdm import tqdm
 import subprocess
 import urllib.parse
 import yt_dlp
@@ -650,8 +651,29 @@ async def txt_handler(bot: Client, m: Message):
                     remaining_links = len(links) - count
                     progress = (count / len(links)) * 100
                     emoji_message = await show_random_emojis(message)
+                    url = "http://example.com/video.mp4"  # Replace with actual video URL
+                    output_path = "video.mp4"  # Replace with actual output path
+
+                    response = requests.get(url, stream=True)
+                    total_size = int(response.headers.get('content-length', 0))
+                    downloaded_size = 0
+                    block_size = 1024  # 1 Kilobyte
+
+                    with open(output_path, 'wb') as file, tqdm(
+                        desc="Current progress",
+                        total=total_size,
+                        unit='iB',
+                        unit_scale=True,
+                        unit_divisor=1024,
+                    ) as bar:
+                        for data in response.iter_content(block_size):
+                            downloaded_size += len(data)
+                            progress_video = (downloaded_size / total_size) * 100
+                            bar.update(len(data))
+                            file.write(data)
                     Show = f"<pre><code>**⚡𝐃𝐨𝐰𝐧𝐥𝐨𝐚𝐝𝐢𝐧𝐠 𝐒𝐭𝐚𝐫𝐭𝐞𝐝...⏳**</code></pre>\n" \
-                           f"<pre><code>🚀𝐏𝐫𝐨𝐠𝐫𝐞𝐬𝐬 » {progress:.2f}%</code></pre>\n" \
+                           f"<pre><code>📊𝐓𝐱𝐭 𝐏𝐫𝐨𝐠𝐫𝐞𝐬𝐬 » {progress_links:.2f}%</code></pre>\n" \
+                           f"<pre><code>🚀𝐃𝐨𝐰𝐧𝐥𝐨𝐚𝐝𝐢𝐧𝐠 𝐏𝐫𝐨𝐠𝐫𝐞𝐬𝐬 » {progress_video:.2f}%</code></pre>"
                            f"<pre><code>🔗𝐈𝐧𝐝𝐞𝐱 » {str(count)}/{len(links)}</code></pre>\n" \
                            f"<pre><code>🖇️𝐑𝐞𝐦𝐚𝐢𝐧𝐢𝐧𝐠 𝐋𝐢𝐧𝐤𝐬 » {remaining_links}</code></pre>\n" \
                            f"📚𝐓𝐢𝐭𝐥𝐞 » `{name}`\n" \
@@ -666,6 +688,7 @@ async def txt_handler(bot: Client, m: Message):
                     await helper.send_vid(bot, m, cc, filename, thumb, name, prog)
                     count += 1
                     time.sleep(1)
+                
 
             except Exception as e:
                 await m.reply_text(
