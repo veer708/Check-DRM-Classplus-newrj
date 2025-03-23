@@ -453,7 +453,7 @@ async def txt_handler(bot: Client, m: Message):
     else:
         PW = raw_text4
         
-    await editable.edit("<pre><code>⚪Send ☞ `no` for **video** format</code></pre>\n<pre><code>🔘Send ☞ `No` for **Document** format</code></pre>")
+    await editable.edit("🌅Send ☞ `Thumb URL` for **Thumbnail**\n\n🎞️Send ☞ `no` for **video** format\n\n📁Send ☞ `No` for **Document** format")
     input6 = message = await bot.listen(editable.chat.id)
     raw_text6 = input6.text
     await input6.delete(True)
@@ -726,7 +726,7 @@ async def text_handler(bot: Client, m: Message):
     else:
         PW = raw_text4
         
-    await editable.edit("<pre><code>⚪Send ☞ `no` for **video** format</code></pre>\n<pre><code>🔘Send ☞ `No` for **Document** format</code></pre>")
+    await editable.edit("🌅Send ☞ `Thumb URL` for **Thumbnail**\n\n🎞️Send ☞ `no` for **video** format\n\n📁Send ☞ `No` for **Document** format")
     input6 = message = await bot.listen(editable.chat.id, filters=filters.text & filters.user(m.from_user.id))
     raw_text6 = input6.text
     await input6.delete(True)
