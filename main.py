@@ -676,7 +676,7 @@ async def txt_handler(bot: Client, m: Message):
                 continue
 
     except Exception as e:
-        await m.reply_text{e}
+        await m.reply_text(e)
     await m.reply_text("<pre><code>Downloaded By ⌈✨『𝙎𝘼𝙄𝙉𝙄 𝘽𝙊𝙏𝙎』✨⌋</code></pre>")
     
 @bot.on_message(filters.text & filters.private)
