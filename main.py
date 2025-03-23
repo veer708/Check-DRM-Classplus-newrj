@@ -793,8 +793,8 @@ async def text_handler(bot: Client, m: Message):
             if "jw-prod" in url:
                 cmd = f'yt-dlp -o "{name}.mp4" "{url}"'
 
-            #elif "youtube.com" in url or "youtu.be" in url:
-                #cmd = f'yt-dlp --cookies youtube_cookies.txt -f "{ytf}" "{url}" -o "{name}".mp4'
+            elif "youtube.com" in url or "youtu.be" in url:
+                cmd = f'yt-dlp --cookies youtube_cookies.txt -f "{ytf}" "{url}" -o "{name}".mp4'
 
             else:
                 cmd = f'yt-dlp -f "{ytf}" "{url}" -o "{name}.mp4"'
@@ -891,14 +891,14 @@ async def text_handler(bot: Client, m: Message):
                         time.sleep(1)    
                         pass          
 
-                elif "youtu" in url:
-                    try:
-                        await bot.send_photo(chat_id=m.chat.id, photo=photoyt, caption=ccyt)
-                        count +=1
-                    except Exception as e:
-                        await m.reply_text(str(e))    
-                        time.sleep(1)    
-                        pass
+                #elif "youtu" in url:
+                    #try:
+                        #await bot.send_photo(chat_id=m.chat.id, photo=photoyt, caption=ccyt)
+                        #count +=1
+                    #except Exception as e:
+                        #await m.reply_text(str(e))    
+                        #time.sleep(1)    
+                        #pass
 
                 elif ".zip" in url:
                     try:
