@@ -675,7 +675,7 @@ async def txt_handler(bot: Client, m: Message):
 
     except Exception as e:
         await m.reply_text(e)
-    await m.reply_text("<pre><code>list index out of range</code></pre>\n<pre><code>Downloading By ⌈✨『𝙎𝘼𝙄𝙉𝙄 𝘽𝙊𝙏𝙎』✨⌋</code></pre>")
+    await m.reply_text("<pre><code>list index out of range</code></pre>\n<pre><code>Downloaded By ⌈✨『𝙎𝘼𝙄𝙉𝙄 𝘽𝙊𝙏𝙎』✨⌋</code></pre>")
     
 @bot.on_message(filters.text & filters.private)
 async def text_handler(bot: Client, m: Message):
