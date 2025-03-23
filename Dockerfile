@@ -1,6 +1,5 @@
-# for heroku deployment...add this bulidpack.  https://github.com/heroku/heroku-buildpack-activestorage-preview
 FROM python:3.9.2-slim-buster
-RUN apt-get update -y && apt-get upgrade -y \
+RUN apt-get update && apt-get install -y wget \
     && apt-get install -y --no-install-recommends gcc libffi-dev musl-dev ffmpeg aria2 python3-pip \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
