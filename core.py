@@ -122,19 +122,20 @@ async def run(cmd):
     if stderr:
         return f'[stderr]\n{stderr.decode()}'
 
-    
-
-def old_download(url, file_name, chunk_size = 1024 * 10):
+def old_download(url, file_name, chunk_size=1024 * 10):
     if os.path.exists(file_name):
         os.remove(file_name)
     r = requests.get(url, allow_redirects=True, stream=True)
+    total_size = int(r.headers.get('content-length', 0))
+    downloaded_size = 0
     with open(file_name, 'wb') as fd:
         for chunk in r.iter_content(chunk_size=chunk_size):
             if chunk:
                 fd.write(chunk)
+                downloaded_size += len(chunk)
+                print(f"Downloaded: {downloaded_size} of {total_size} bytes")
     return file_name
-
-
+    
 def human_readable_size(size, decimal_places=2):
     for unit in ['B', 'KB', 'MB', 'GB', 'TB', 'PB']:
         if size < 1024.0 or unit == 'PB':
