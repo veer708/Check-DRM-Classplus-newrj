@@ -658,7 +658,7 @@ async def txt_handler(bot: Client, m: Message):
                            f"┣🍁𝐐𝐮𝐚𝐥𝐢𝐭𝐲 » {raw_text2}p\n┃\n" \
                            f'┣━🔗𝐋𝐢𝐧𝐤 » <a href="{link0}">__**Click Here to Open Link**__</a>\n┃\n' \
                            f'╰━━🖼️𝐓𝐡𝐮𝐦𝐛𝐧𝐚𝐢𝐥 » <a href="{raw_text6}">__**Thumb View**__</a>\n\n' \
-                           f"✦𝐁𝐨𝐭 𝐌𝐚𝐝𝐞 𝐁𝐲 ✦ `𝙎𝘼𝙄𝙉𝙄 𝘽𝙊𝙏𝙎🐦`"
+                           f"✦𝐁𝐨𝐭 𝐌𝐚𝐝𝐞 𝐁𝐲 ✦ `𝙎𝘼𝙄𝙉𝙄 𝘽𝙊𝙏𝙎🐦`\n"
                            f"📏𝐒𝐢𝐳𝐞 » {downloaded_size}/{total_size}"
                     prog = await m.reply_text(Show, disable_web_page_preview=True)
                     res_file = await helper.download_video(url, cmd, name)
