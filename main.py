@@ -333,20 +333,36 @@ async def txt_handler(bot: Client, m: Message):
     await input.delete(True)
     file_name, ext = os.path.splitext(os.path.basename(x))
     credit = f"𝙎𝘼𝙄𝙉𝙄 𝘽𝙊𝙏𝙎"
+        pdf_count = 0
+    img_count = 0
+    zip_count = 0
+    video_count = 0
+    
     try:    
         with open(x, "r") as f:
             content = f.read()
         content = content.split("\n")
+        
         links = []
         for i in content:
-            links.append(i.split("://", 1))
+            if "://" in i:
+                url = i.split("://", 1)[1]
+                links.append(i)
+                if ".pdf" in url:
+                    pdf_count += 1
+                elif url.endswith((".png", ".jpeg", ".jpg")):
+                    img_count += 1
+                elif ".zip" in url:
+                    zip_count += 1
+                else:
+                    video_count += 1
         os.remove(x)
     except:
         await m.reply_text("<pre><code>🔹Invalid file input.</code></pre>")
         os.remove(x)
         return
    
-    await editable.edit(f"<pre><code>🔹Total 🔗 links found are {len(links)}\n🔹Send From where you want to download</code></pre>")
+    await editable.edit(f"<pre><code>🔹Total 🔗 links found are {len(links)}\n\n🔹PDF : {pdf_count}, 🔹Image : {img_count}\n🔹ZIP : {zip_count}, 🔹Video : {video_count}\n\n🔹Send From where you want to download</code></pre>")
     input0: Message = await bot.listen(editable.chat.id)
     raw_text = input0.text
     await input0.delete(True)
