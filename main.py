@@ -362,7 +362,7 @@ async def txt_handler(bot: Client, m: Message):
         os.remove(x)
         return
    
-    await editable.edit(f"<pre><code>🔹Total 🔗 links found are {len(links)}\n\n🔹PDF : {pdf_count}, 🔹Image : {img_count}\n🔹ZIP : {zip_count}, 🔹Video : {video_count}\n\n🔹Send From where you want to download</code></pre>")
+    await editable.edit(f"<pre><code>🔹Total 🔗 links found are {len(links)}\n\n🔹Img : {img_count}  🔹PDF : {pdf_count}\n🔹ZIP : {zip_count}  🔹Video : {video_count}\n\n🔹Send From where you want to download</code></pre>")
     input0: Message = await bot.listen(editable.chat.id)
     raw_text = input0.text
     await input0.delete(True)
@@ -673,7 +673,7 @@ async def txt_handler(bot: Client, m: Message):
 
     except Exception as e:
         await m.reply_text(e)
-    await m.reply_text(f"✨𝙱𝚊𝚝𝚌𝚑 𝚂𝚞𝚖𝚖𝚊𝚛𝚢✨\n▬▬▬▬▬▬▬▬▬▬▬▬▬▬\n🔢𝙸𝚗𝚍𝚎𝚡 𝚁𝚊𝚗𝚐𝚎 » (`{raw_text}` to `{len(links)}`)\n\n📚𝙱𝚊𝚝𝚌𝚑 𝙽𝚊𝚖𝚎 » `{b_name}`\n▬▬▬▬▬▬▬▬▬▬▬▬▬▬\n✨𝚃𝚡𝚝 𝚂𝚞𝚖𝚖𝚊𝚛𝚢✨\n▬▬▬▬▬▬▬▬▬▬▬▬▬▬\n🔹𝙿𝙳𝙵 » {pdf_count} 🔹𝚉𝙸𝙿 » {zip_count}\n🔹𝚅𝚒𝚍𝚎𝚘 » {video_count} 🔹𝙸𝚖𝚊𝚐𝚎 » {img_count}\n▬▬▬▬▬▬▬▬▬▬▬▬▬▬\n✅𝚂𝚝𝚊𝚝𝚞𝚜 » 𝙲𝚘𝚖𝚙𝚕𝚎𝚝𝚎𝚍")
+    await m.reply_text(f"✨𝙱𝚊𝚝𝚌𝚑 𝚂𝚞𝚖𝚖𝚊𝚛𝚢✨\n▬▬▬▬▬▬▬▬▬▬▬▬▬▬\n🔢𝙸𝚗𝚍𝚎𝚡 𝚁𝚊𝚗𝚐𝚎 » (`{raw_text}` to `{len(links)}`)\n📚𝙱𝚊𝚝𝚌𝚑 𝙽𝚊𝚖𝚎 » `{b_name}`\n▬▬▬▬▬▬▬▬▬▬▬▬▬▬\n✨𝚃𝚡𝚝 𝚂𝚞𝚖𝚖𝚊𝚛𝚢✨\n▬▬▬▬▬▬▬▬▬▬▬▬▬▬\n🔹𝚉𝙸𝙿 » {zip_count}  🔹𝙿𝙳𝙵 » {pdf_count}\n🔹𝙸𝚖𝚊𝚐𝚎 » {img_count}  🔹𝚅𝚒𝚍𝚎𝚘 » {video_count}\n▬▬▬▬▬▬▬▬▬▬▬▬▬▬\n✅𝚂𝚝𝚊𝚝𝚞𝚜 » 𝙲𝚘𝚖𝚙𝚕𝚎𝚝𝚎𝚍")
     await m.reply_text("<pre><code>Downloaded By ⌈✨『𝙎𝘼𝙄𝙉𝙄 𝘽𝙊𝙏𝙎』✨⌋</code></pre>")
     
 @bot.on_message(filters.text & filters.private)
