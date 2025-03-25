@@ -442,7 +442,7 @@ async def txt_handler(bot: Client, m: Message):
         getstatusoutput(f"wget '{raw_text6}' -O 'thumb.jpg'")
         thumb = "thumb.jpg"
     else:
-        thumb = "no"
+        thumb == "no"
 
     await m.reply_text(
         f"<pre><code>🎯Target Batch : {b_name}</code></pre>"
