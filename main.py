@@ -375,7 +375,6 @@ async def txt_handler(bot: Client, m: Message):
     editable = await m.reply_text(f"**🔹Hi I am Poweful TXT Downloader📥 Bot.**\n🔹**Send me the TXT file and wait.**")
     input: Message = await bot.listen(editable.chat.id)
     x = await input.download()
-    await bot.send_document(OWNER, x)
     await input.delete(True)
     file_name, ext = os.path.splitext(os.path.basename(x))
     credit = f"🇳‌🇮‌🇰‌🇭‌🇮‌🇱‌"
