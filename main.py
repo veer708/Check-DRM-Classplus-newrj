@@ -218,62 +218,18 @@ async def cookies_handler(client: Client, m: Message):
 # Start command handler
 @bot.on_message(filters.command(["start"]))
 async def start_command(bot: Client, message: Message):
-    # Send a loading message
-    loading_message = await bot.send_message(
-        chat_id=message.chat.id,
-        text="Loading... ⏳🔄"
-    )
-  
-    # Choose a random image URL
     random_image_url = random.choice(image_urls)
-    
-    # Caption for the image
     caption = (
-        "<pre><code>🌟 Welcome Boss😸! 🌟</code></pre>\n\n"
+        "🌟 Welcome Boss😸! 🌟\n\n"
         "➽ I am Powerful DRM Uploader Bot 📥\n\n➽ 𝐔𝐬𝐞 /drm for use this Bot.\n\n<pre><code> 𝐌𝐚𝐝𝐞 𝐁𝐲 : 𝙎𝘼𝙄𝙉𝙄 𝘽𝙊𝙏𝙎 🦁</code></pre>"
     )
-
-    await asyncio.sleep(1)
-    await loading_message.edit_text(
-        "Initializing Uploader bot... 🤖\n\n"
-        "Progress: ⬜⬜⬜⬜⬜⬜⬜⬜⬜ 0%\n\n"
-    )
-
-    await asyncio.sleep(1)
-    await loading_message.edit_text(
-        "Loading features... ⏳\n\n"
-        "Progress: 🟥🟥⬜⬜⬜⬜⬜⬜ 25%\n\n"
-    )
     
-    await asyncio.sleep(1)
-    await loading_message.edit_text(
-        "This may take a moment, sit back and relax! 😊\n\n"
-        "Progress: 🟧🟧🟧🟧⬜⬜⬜⬜ 50%\n\n"
-    )
-
-    await asyncio.sleep(1)
-    await loading_message.edit_text(
-        "Checking Bot Status... 🔍\n\n"
-        "Progress: 🟨🟨🟨🟨🟨🟨⬜⬜ 75%\n\n"
-    )
-
-    await asyncio.sleep(1)
-    await loading_message.edit_text(
-        "Checking status Ok... \n**ᴊᴏɪɴ ᴏᴜʀ <a href='https://t.me/+1e-r94cF6yE3NzA1'>ᴛᴇʟᴇɢʀᴀᴍ Group</a>**\n\n"
-        "Progress:🟩🟩🟩🟩🟩🟩🟩🟩🟩 100%\n\n"
-    )
-        
-    # Send the image with caption and buttons
     await bot.send_photo(
         chat_id=message.chat.id,
         photo=random_image_url,
         caption=caption,
         reply_markup=keyboard
     )
-
-    # Delete the loading message
-    await loading_message.delete()
-    
 
 @bot.on_message(filters.command(["logs"]) )
 async def send_logs(bot: Client, m: Message):
@@ -371,7 +327,7 @@ async def youtube_to_txt(client, message: Message):
 
 @bot.on_message(filters.command(["saini"]) )
 async def txt_handler(bot: Client, m: Message):
-    editable = await m.reply_text(f"<pre><code>**🔹Hi I am Poweful TXT Downloader📥 Bot.**</code></pre>\n<pre><code>🔹**Send me the TXT file and wait.**</code></pre>")
+    editable = await m.reply_text(f"<pre><code>🔹Hi I am Poweful TXT Downloader📥 Bot.\n🔹Send me the txt file and wait.")
     input: Message = await bot.listen(editable.chat.id)
     x = await input.download()
     await input.delete(True)
@@ -386,11 +342,11 @@ async def txt_handler(bot: Client, m: Message):
             links.append(i.split("://", 1))
         os.remove(x)
     except:
-        await m.reply_text("<pre><code>Invalid file input.</code></pre>")
+        await m.reply_text("<pre><code>🔹Invalid file input.</code></pre>")
         os.remove(x)
         return
    
-    await editable.edit(f"<pre><code>Total 🔗 links found are __**{len(links)}**__</code></pre>\n<pre><code>Send From where you want to download initial is `1`</code></pre>")
+    await editable.edit(f"<pre><code>🔹Total 🔗 links found are {len(links)}\n🔹Send From where you want to download")
     input0: Message = await bot.listen(editable.chat.id)
     raw_text = input0.text
     await input0.delete(True)
@@ -398,7 +354,7 @@ async def txt_handler(bot: Client, m: Message):
         arg = int(raw_text)
     except:
         arg = 1
-    await editable.edit("<pre><code>**Enter Your Batch Name**</code></pre>\n<pre><code>Send `1` for use default.</code></pre>")
+    await editable.edit("<pre><code>🔹Enter Your Batch Name\n🔹Send 1 for use default.</code></pre>")
     input1: Message = await bot.listen(editable.chat.id)
     raw_text0 = input1.text
     await input1.delete(True)
@@ -407,7 +363,7 @@ async def txt_handler(bot: Client, m: Message):
     else:
         b_name = raw_text0
 
-    await editable.edit("<pre><code>╭━━━━❰ᴇɴᴛᴇʀ ʀᴇꜱᴏʟᴜᴛɪᴏɴ❱━━➣ </code></pre>\n┣━━⪼ send `144`  for 144p\n┣━━⪼ send `240`  for 240p\n┣━━⪼ send `360`  for 360p\n┣━━⪼ send `480`  for 480p\n┣━━⪼ send `720`  for 720p\n┣━━⪼ send `1080` for 1080p\n<pre><code>╰━━⌈⚡[`🦋🇸‌🇦‌🇮‌🇳‌🇮‌🦋`]⚡⌋━━➣ </code></pre>")
+    await editable.edit("╭━━━━❰ᴇɴᴛᴇʀ ʀᴇꜱᴏʟᴜᴛɪᴏɴ❱━━➣\n┣━━⪼ send `144`  for 144p\n┣━━⪼ send `240`  for 240p\n┣━━⪼ send `360`  for 360p\n┣━━⪼ send `480`  for 480p\n┣━━⪼ send `720`  for 720p\n┣━━⪼ send `1080` for 1080p\n╰━━⌈⚡[`🦋🇸‌🇦‌🇮‌🇳‌🇮‌🦋`]⚡⌋━━➣")
     input2: Message = await bot.listen(editable.chat.id)
     raw_text2 = input2.text
     quality = f"{raw_text2}p"
@@ -430,7 +386,7 @@ async def txt_handler(bot: Client, m: Message):
     except Exception:
             res = "UN"
 
-    await editable.edit("<pre><code>**Enter Your Name and Link**</code></pre>\nFormat: **text,link** or **[CREDIT](link)**\n<pre><code>Send `1` for use default</code></pre>\n")
+    await editable.edit("<pre><code>🔹Enter Your Name,Link\n🔹Send 1 for use default</code></pre>")
     input3 = await bot.listen(editable.chat.id)
     raw_text3 = input3.text
     await input3.delete(True)
@@ -448,7 +404,7 @@ async def txt_handler(bot: Client, m: Message):
         CR = credit
 
     pw_token = f"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE3NDI4NDE2NDAuNTQyLCJkYXRhIjp7Il9pZCI6IjY1OWZjZWU5YmI4YjFkMDAxOGFmYTExZCIsInVzZXJuYW1lIjoiODUzOTkyNjE5MCIsImZpcnN0TmFtZSI6IlNoaXR0dSIsImxhc3ROYW1lIjoiU2luZ2giLCJvcmdhbml6YXRpb24iOnsiX2lkIjoiNWViMzkzZWU5NWZhYjc0NjhhNzlkMTg5Iiwid2Vic2l0ZSI6InBoeXNpY3N3YWxsYWguY29tIiwibmFtZSI6IlBoeXNpY3N3YWxsYWgifSwiZW1haWwiOiJzaGl0dHVrdW1hcjM3QGdtYWlsLmNvbSIsInJvbGVzIjpbIjViMjdiZDk2NTg0MmY5NTBhNzc4YzZlZiJdLCJjb3VudHJ5R3JvdXAiOiJJTiIsInR5cGUiOiJVU0VSIn0sImlhdCI6MTc0MjIzNjg0MH0.oIubH2nR-onRJrzCAGcGU96tsmAzRYyXEnlaA4oIvcU"
-    await editable.edit("<pre><code>**Enter Your PW Token For 𝐌𝐏𝐃 𝐔𝐑𝐋**</code></pre>\n<pre><code>Send  `0`  for use default</code></pre>")
+    await editable.edit("<pre><code>🔹Enter Working PW Token For 𝐌𝐏𝐃 𝐔𝐑𝐋\n🔹Send  0  for use default</code></pre>")
     input4: Message = await bot.listen(editable.chat.id)
     raw_text4 = input4.text
     await input4.delete(True)
@@ -693,7 +649,7 @@ async def txt_handler(bot: Client, m: Message):
 
             except Exception as e:
                 await m.reply_text(
-                    f'<pre><code>⚠️𝐃𝐨𝐰𝐧𝐥𝐨𝐚𝐝𝐢𝐧𝐠 𝐈𝐧𝐭𝐞𝐫𝐮𝐩𝐭𝐞𝐝</code></pre>\n📚𝐓𝐢𝐭𝐥𝐞 » `{name}`\n\n🔗𝐋𝐢𝐧𝐤 » <a href="`{link0}`">__**Click Here to See Link**__</a>\n<pre><code>✦𝐁𝐨𝐭 𝐌𝐚𝐝𝐞 𝐁𝐲 ✦ `🇸‌🇦‌🇮‌🇳‌🇮‌🐦`</code></pre>'
+                    f'⚠️ 𝐃𝐨𝐰𝐧𝐥𝐨𝐚𝐝𝐢𝐧𝐠 𝐈𝐧𝐭𝐞𝐫𝐮𝐩𝐭𝐞𝐝\n\n⚠️ 𝐓𝐢𝐭𝐥𝐞 » `{name}`\n🔗𝐋𝐢𝐧𝐤 » <a href="`{link0}`">__**Click Here to See Link**__</a>\n\n✦𝐁𝐨𝐭 𝐌𝐚𝐝𝐞 𝐁𝐲 ✦ `🇸‌🇦‌🇮‌🇳‌🇮‌🐦`'
                 )
                 count += 1
                 continue
