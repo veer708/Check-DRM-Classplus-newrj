@@ -333,7 +333,7 @@ async def txt_handler(bot: Client, m: Message):
     await input.delete(True)
     file_name, ext = os.path.splitext(os.path.basename(x))
     credit = f"𝙎𝘼𝙄𝙉𝙄 𝘽𝙊𝙏𝙎"
-        pdf_count = 0
+    pdf_count = 0
     img_count = 0
     zip_count = 0
     video_count = 0
