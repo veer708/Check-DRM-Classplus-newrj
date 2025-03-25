@@ -441,8 +441,10 @@ async def txt_handler(bot: Client, m: Message):
     elif raw_text6.startswith("http://") or raw_text6.startswith("https://"):
         getstatusoutput(f"wget '{raw_text6}' -O 'thumb.jpg'")
         thumb = "thumb.jpg"
+    elif raw_text6.lower() == "no":
+        thumb = None  
     else:
-        thumb == "no"
+        thumb = "no"
 
     await m.reply_text(
         f"<pre><code>🎯Target Batch : {b_name}</code></pre>"
