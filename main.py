@@ -435,12 +435,13 @@ async def txt_handler(bot: Client, m: Message):
     await input6.delete(True)
     await editable.delete()
 
-    thumb = input6.text
-    if thumb.startswith("http://") or thumb.startswith("https://"):
-        getstatusoutput(f"wget '{thumb}' -O 'thumb.jpg'")
+    if input6.photo:
+        thumb = await input6.download()
+    elif raw_text6.startswith("http://") or raw_text6.startswith("https://"):
+        getstatusoutput(f"wget '{raw_text6}' -O 'thumb.jpg'")
         thumb = "thumb.jpg"
     else:
-        thumb == "no"
+        thumb = "no"
 
     await m.reply_text(
         f"<pre><code>🎯Target Batch : {b_name}</code></pre>"
