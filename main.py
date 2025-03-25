@@ -390,7 +390,7 @@ async def txt_handler(bot: Client, m: Message):
         os.remove(x)
         return
        
-    await editable.edit(f"**🔹Total 🔗 links found are __{len(links)}__\n\n**🔹Send From where you want to download**\n\n**🔹Please wait...10sec...⏳ for start from starting**\n")
+    await editable.edit(f"🔹Total 🔗 links found are __{len(links)}__\n\n🔹Send From where you want to download\n\n🔹Please wait...10sec...⏳ for start from starting\n")
     try:
         input0: Message = await bot.listen(editable.chat.id, timeout=10)
         raw_text = input0.text
@@ -399,7 +399,7 @@ async def txt_handler(bot: Client, m: Message):
         raw_text = '1'
      
 
-    await editable.edit(f"**🔹Enter Batch Name**\n\n**🔹Please wait...10sec...⏳ for use**\n\n🔹𝐍𝐚𝐦𝐞 » `{file_name}`)
+    await editable.edit(f"🔹Enter Your Batch Name\n\n🔹Please wait...10sec...⏳ for use\n\n🔹𝐍𝐚𝐦𝐞 » `{file_name}`)
     try:
         input1: Message = await bot.listen(editable.chat.id, timeout=10)
         raw_text0 = input1.text
@@ -412,7 +412,7 @@ async def txt_handler(bot: Client, m: Message):
     else:
         b_name = raw_text0
 
-    await editable.edit("╭━━━━❰ᴇɴᴛᴇʀ ʀᴇꜱᴏʟᴜᴛɪᴏɴ❱━━➣\n┣━━⪼ send `144`  for 144p\n┣━━⪼ send `240`  for 240p\n┣━━⪼ send `360`  for 360p\n┣━━⪼ send `480`  for 480p\n┣━━⪼ send `720`  for 720p\n┣━━⪼ send `1080` for 1080p\n╰━━⌈⚡[`🦋🇸‌🇦‌🇮‌🇳‌🇮‌🦋`]⚡⌋━━➣\n\n**🔹Please wait...10sec...⏳ for use 480**")
+    await editable.edit("╭━━━━❰ᴇɴᴛᴇʀ ʀᴇꜱᴏʟᴜᴛɪᴏɴ❱━━➣\n┣━━⪼ send `144`  for 144p\n┣━━⪼ send `240`  for 240p\n┣━━⪼ send `360`  for 360p\n┣━━⪼ send `480`  for 480p\n┣━━⪼ send `720`  for 720p\n┣━━⪼ send `1080` for 1080p\n╰━━⌈⚡[`🦋🇸‌🇦‌🇮‌🇳‌🇮‌🦋`]⚡⌋━━➣\n\n`🔹Please wait...10sec...⏳ for use 480`")
     try:
         input2: Message = await bot.listen(editable.chat.id, timeout=10)
         raw_text2 = input2.text
@@ -439,7 +439,7 @@ async def txt_handler(bot: Client, m: Message):
     except Exception:
             res = "UN"
 
-    await editable.edit("**🔹Enter Your Name,Link**\n\n**🔹Please wait..10sec...⏳ for use default**")
+    await editable.edit("🔹Enter Your **Name,Link\**n\n🔹Please wait..10sec...⏳ for use default")
     try:
         input3: Message = await bot.listen(editable.chat.id, timeout=10)
         raw_text3 = input3.text
@@ -459,7 +459,7 @@ async def txt_handler(bot: Client, m: Message):
     else:
         CR = credit
 
-    await editable.edit("**🔹Enter Working **PW Token** For 𝐌𝐏𝐃 𝐔𝐑𝐋**\n**🔹Please wait..5sec...⏳ for use default**")
+    await editable.edit("🔹Enter Working **PW Token** For 𝐌𝐏𝐃 𝐔𝐑𝐋\n🔹Please wait..5sec...⏳ for use default")
     try:
         input4: Message = await bot.listen(editable.chat.id, timeout=5)
         raw_text4 = input4.text
