@@ -371,7 +371,7 @@ async def youtube_to_txt(client, message: Message):
 
 @bot.on_message(filters.command(["saini"]) )
 async def txt_handler(bot: Client, m: Message):
-    editable = await m.reply_text(f"<pre><code>**🔹Hi I am Poweful TXT Downloader📥 Bot.**</code></pre>\n<pre><code>🔹**Send me the TXT file and wait.**</code></pre>")
+    editable = await m.reply_text(f"<pre><code>**🔹Hi I am Poweful TXT Downloader📥 Bot.**\n🔹**Send me the TXT file and wait.**</code></pre>")
     input: Message = await bot.listen(editable.chat.id)
     x = await input.download()
     await input.delete(True)
@@ -389,29 +389,38 @@ async def txt_handler(bot: Client, m: Message):
         await m.reply_text("<pre><code>Invalid file input.</code></pre>")
         os.remove(x)
         return
-   
-    await editable.edit(f"<pre><code>Total 🔗 links found are __**{len(links)}**__</code></pre>\n<pre><code>Send From where you want to download initial is `1`</code></pre>")
-    input0: Message = await bot.listen(editable.chat.id)
-    raw_text = input0.text
-    await input0.delete(True)
+       
+    await editable.edit(f"**🔹Total 🔗 links found are __{len(links)}__\n\n**🔹Send From where you want to download initial is `1`**\n\n**🔹Please wait...10sec...⏳ for start from starting**\n")
     try:
-        arg = int(raw_text)
-    except:
-        arg = 1
-    await editable.edit("<pre><code>**Enter Your Batch Name**</code></pre>\n<pre><code>Send `1` for use default.</code></pre>")
-    input1: Message = await bot.listen(editable.chat.id)
-    raw_text0 = input1.text
-    await input1.delete(True)
+        input0: Message = await bot.listen(editable.chat.id, timeout=10)
+        raw_text = input0.text
+        await input0.delete(True)
+    except asyncio.TimeoutError:
+        raw_text = '1'
+     
+
+    await editable.edit(f"**🔹Enter Batch Name**\n\n**🔹Please wait...10sec...⏳ for use**\n\n🔹𝐍𝐚𝐦𝐞 » __**{file_name}__**")
+    try:
+        input1: Message = await bot.listen(editable.chat.id, timeout=10)
+        raw_text0 = input1.text
+        await input1.delete(True)
+    except asyncio.TimeoutError:
+        raw_text0 = '1'
+    
     if raw_text0 == '1':
         b_name = file_name
     else:
         b_name = raw_text0
 
-    await editable.edit("<pre><code>╭━━━━❰ᴇɴᴛᴇʀ ʀᴇꜱᴏʟᴜᴛɪᴏɴ❱━━➣ </code></pre>\n┣━━⪼ send `144`  for 144p\n┣━━⪼ send `240`  for 240p\n┣━━⪼ send `360`  for 360p\n┣━━⪼ send `480`  for 480p\n┣━━⪼ send `720`  for 720p\n┣━━⪼ send `1080` for 1080p\n<pre><code>╰━━⌈⚡[`🦋🇸‌🇦‌🇮‌🇳‌🇮‌🦋`]⚡⌋━━➣ </code></pre>")
-    input2: Message = await bot.listen(editable.chat.id)
-    raw_text2 = input2.text
+    await editable.edit("╭━━━━❰ᴇɴᴛᴇʀ ʀᴇꜱᴏʟᴜᴛɪᴏɴ❱━━➣\n┣━━⪼ send `144`  for 144p\n┣━━⪼ send `240`  for 240p\n┣━━⪼ send `360`  for 360p\n┣━━⪼ send `480`  for 480p\n┣━━⪼ send `720`  for 720p\n┣━━⪼ send `1080` for 1080p\n╰━━⌈⚡[`🦋🇸‌🇦‌🇮‌🇳‌🇮‌🦋`]⚡⌋━━➣\n\n**🔹Please wait...10sec...⏳ for use 480**")
+    try:
+        input2: Message = await bot.listen(editable.chat.id, timeout=10)
+        raw_text2 = input2.text
+        await input2.delete(True)
+    except asyncio.TimeoutError:
+        raw_text = '480'
+        
     quality = f"{raw_text2}p"
-    await input2.delete(True)
     try:
         if raw_text2 == "144":
             res = "256x144"
@@ -430,11 +439,14 @@ async def txt_handler(bot: Client, m: Message):
     except Exception:
             res = "UN"
 
-    await editable.edit("<pre><code>**Enter Your Name and Link**</code></pre>\nFormat: **text,link** or **[CREDIT](link)**\n<pre><code>Send `1` for use default</code></pre>\n")
-    input3 = await bot.listen(editable.chat.id)
-    raw_text3 = input3.text
-    await input3.delete(True)
-    # Default credit message with link
+    await editable.edit("**🔹Enter Your Name,Link**\n\n**🔹Please wait..10sec...⏳ for use default**")
+    try:
+        input3: Message = await bot.listen(editable.chat.id, timeout=10)
+        raw_text3 = input3.text
+        await input3.delete(True)
+    except asyncio.TimeoutError:
+        raw_text3 = '1'
+        
     credit = "️[𝙎𝘼𝙄𝙉𝙄 𝘽𝙊𝙏𝙎 🕊️](https://t.me/+MdZ2996M2G43MWFl)"
     if raw_text3 == '1':
         CR = '[𝙎𝘼𝙞𝙉𝙄 𝘽𝙊𝙏𝙎 🕊️](https://t.me/+MdZ2996M2G43MWFl)'
@@ -447,29 +459,31 @@ async def txt_handler(bot: Client, m: Message):
     else:
         CR = credit
 
-    pw_token = f"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE3NDI4NDE2NDAuNTQyLCJkYXRhIjp7Il9pZCI6IjY1OWZjZWU5YmI4YjFkMDAxOGFmYTExZCIsInVzZXJuYW1lIjoiODUzOTkyNjE5MCIsImZpcnN0TmFtZSI6IlNoaXR0dSIsImxhc3ROYW1lIjoiU2luZ2giLCJvcmdhbml6YXRpb24iOnsiX2lkIjoiNWViMzkzZWU5NWZhYjc0NjhhNzlkMTg5Iiwid2Vic2l0ZSI6InBoeXNpY3N3YWxsYWguY29tIiwibmFtZSI6IlBoeXNpY3N3YWxsYWgifSwiZW1haWwiOiJzaGl0dHVrdW1hcjM3QGdtYWlsLmNvbSIsInJvbGVzIjpbIjViMjdiZDk2NTg0MmY5NTBhNzc4YzZlZiJdLCJjb3VudHJ5R3JvdXAiOiJJTiIsInR5cGUiOiJVU0VSIn0sImlhdCI6MTc0MjIzNjg0MH0.oIubH2nR-onRJrzCAGcGU96tsmAzRYyXEnlaA4oIvcU"
-    await editable.edit("<pre><code>**Enter Your PW Token For 𝐌𝐏𝐃 𝐔𝐑𝐋**</code></pre>\n<pre><code>Send  `0`  for use default</code></pre>")
-    input4: Message = await bot.listen(editable.chat.id)
-    raw_text4 = input4.text
-    await input4.delete(True)
-    if raw_text4 == '0':
-        PW = pw_token
-    else:
-        PW = raw_text4
-        
-    await editable.edit("🌅Send ☞ `Thumb URL` for **Thumbnail**\n\n🎞️Send ☞ `no` for **video** format\n\n📁Send ☞ `No` for **Document** format")
-    input6 = message = await bot.listen(editable.chat.id)
-    raw_text6 = input6.text
-    await input6.delete(True)
-    await editable.delete()
+    await editable.edit("**🔹Enter Working **PW Token** For 𝐌𝐏𝐃 𝐔𝐑𝐋**\n**🔹Please wait..5sec...⏳ for use default**")
+    try:
+        input4: Message = await bot.listen(editable.chat.id, timeout=5)
+        raw_text4 = input4.text
+        await input4.delete(True)
+    except asyncio.TimeoutError:
+        raw_text4 = 'PW'
 
-    thumb = input6.text
+    Thumb = f"🌅Send ☞ `Thumb URL` for **Thumbnail**\n\n🎞️Send ☞ `no` for **video** format\n\n📁Send ☞ `No` for **Document** format\n\n🔹Please wait..5sec...⏳ for use default"
+    await editable.edit(Thumb, disable_web_page_preview=True)
+    try:
+        input6: Message = await bot.listen(editable.chat.id, timeout=5)
+        raw_text6 = input6.text
+        await input6.delete(True)
+    except asyncio.TimeoutError:
+        raw_text6 = 'no'
+
+    await editable.delete()
+    thumb = raw_text6
     if thumb.startswith("http://") or thumb.startswith("https://"):
         getstatusoutput(f"wget '{thumb}' -O 'thumb.jpg'")
         thumb = "thumb.jpg"
     else:
         thumb == "no"
-
+        
     await m.reply_text(
         f"<pre><code>**🎯Target Batch :** `{b_name}`</code></pre>"
     )
@@ -504,7 +518,7 @@ async def txt_handler(bot: Client, m: Message):
                cmd = f'yt-dlp --add-header "referer:https://web.classplusapp.com/" --add-header "x-cdn-tag:empty" -f "{ytf}" "{url}" -o "{name}.mp4"'
                 
             elif "d1d34p8vz63oiq" in url or "sec1.pw.live" in url:
-             url = f"https://anonymouspwplayer-b99f57957198.herokuapp.com/pw?url={url}?token={PW}"
+             url = f"https://anonymouspwplayer-b99f57957198.herokuapp.com/pw?url={url}?token={raw_text4}"
 
             name1 = links[i][0].replace("\t", "").replace(":", "").replace("/", "").replace("+", "").replace("#", "").replace("|", "").replace("@", "").replace("*", "").replace(".", "").replace("https", "").replace("http", "").strip()
             name = f'{name1[:60]}'
