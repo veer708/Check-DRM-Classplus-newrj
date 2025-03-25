@@ -371,7 +371,7 @@ async def youtube_to_txt(client, message: Message):
 
 @bot.on_message(filters.command(["saini"]) )
 async def txt_handler(bot: Client, m: Message):
-    editable = await m.reply_text(f"<pre><code>**🔹Hi I am Poweful TXT Downloader📥 Bot.**\n**🔹Send me the TXT file and wait.**</code></pre>")
+    editable = await m.reply_text(f"<pre><code>**🔹Hi I am Poweful TXT Downloader📥 Bot.**\n**🔹Send me the TXT 🗄️ file and wait.**</code></pre>")
     input: Message = await bot.listen(editable.chat.id)
     x = await input.download()
     await input.delete(True)
@@ -390,7 +390,7 @@ async def txt_handler(bot: Client, m: Message):
         os.remove(x)
         return
        
-    await editable.edit(f"**🔹Total 🔗 links found are __{len(links)}__\n\n**🔹Send From where you want to download initial is `1`**\n\n**🔹Please wait...10sec...⏳ for start from starting**\n")
+    await editable.edit(f"**🔹Total 🔗 links found are __{len(links)}__\n\n**🔹Send From where you want to download**\n\n**🔹Please wait...10sec...⏳ for start from starting**\n")
     try:
         input0: Message = await bot.listen(editable.chat.id, timeout=10)
         raw_text = input0.text
@@ -418,7 +418,7 @@ async def txt_handler(bot: Client, m: Message):
         raw_text2 = input2.text
         await input2.delete(True)
     except asyncio.TimeoutError:
-        raw_text = '480'
+        raw_text2 = '480'
         
     quality = f"{raw_text2}p"
     try:
