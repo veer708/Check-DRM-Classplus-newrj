@@ -362,7 +362,7 @@ async def txt_handler(bot: Client, m: Message):
         os.remove(x)
         return
    
-    await editable.edit(f"<pre><code>🔹Total 🔗 links found are {len(links)}\n\n🔹Img : {img_count}  🔹PDF : {pdf_count}\n🔹ZIP : {zip_count}  🔹Video : {video_count}\n\n🔹Send From where you want to download</code></pre>")
+    await editable.edit(f"`🔹Total 🔗 links found are {len(links)}\n\n🔹Img : {img_count}  🔹PDF : {pdf_count}\n🔹ZIP : {zip_count}  🔹Video : {video_count}\n\n🔹Send From where you want to download.`")
     input0: Message = await bot.listen(editable.chat.id)
     raw_text = input0.text
     await input0.delete(True)
@@ -429,7 +429,7 @@ async def txt_handler(bot: Client, m: Message):
     else:
         PW = raw_text4
         
-    await editable.edit("🌅Send ☞ `Thumb URL` for **Thumbnail**\n\n🎞️Send ☞ `no` for **video** format\n\n📁Send ☞ `No` for **Document** format")
+    await editable.edit("01. 🌅Send ☞ Direct **Thumb Photo**\n\n02. 🔗Send ☞ `Thumb URL` for **Thumbnail**\n\n03. 🎞️Send ☞ `no` for **video** format\n\n04. 📁Send ☞ `No` for **Document** format")
     input6 = message = await bot.listen(editable.chat.id)
     raw_text6 = input6.text
     await input6.delete(True)
@@ -655,8 +655,9 @@ async def txt_handler(bot: Client, m: Message):
                            f"📔𝐓𝐢𝐭𝐥𝐞 » `{name}`\n┃\n" \
                            f"┣🍁𝐐𝐮𝐚𝐥𝐢𝐭𝐲 » {raw_text2}p\n┃\n" \
                            f'┣━🔗𝐋𝐢𝐧𝐤 » <a href="{link0}">__**Click Here to Open Link**__</a>\n┃\n' \
-                           f'╰━━🖼️𝐓𝐡𝐮𝐦𝐛𝐧𝐚𝐢𝐥 » <a href="{raw_text6}">__**Thumb View**__</a>\n\n' \
-                           f"✦𝐁𝐨𝐭 𝐌𝐚𝐝𝐞 𝐁𝐲 ✦ `𝙎𝘼𝙄𝙉𝙄 𝘽𝙊𝙏𝙎🐦`"
+                           f'╰━━🖼️𝐓𝐡𝐮𝐦𝐛𝐧𝐚𝐢𝐥 » <a href="{raw_text6}">__**Thumb Link**__</a>\n\n' \
+                           f"➽ 𝐔𝐬𝐞 /stop for stop the Bot." \
+                           f"➽ 𝐁𝐨𝐭 𝐌𝐚𝐝𝐞 𝐁𝐲 ✦ `𝙎𝘼𝙄𝙉𝙄 𝘽𝙊𝙏𝙎🐦`"
                     prog = await m.reply_text(Show, disable_web_page_preview=True)
                     res_file = await helper.download_video(url, cmd, name)
                     filename = res_file
