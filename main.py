@@ -399,7 +399,7 @@ async def txt_handler(bot: Client, m: Message):
         raw_text = '1'
      
 
-    await editable.edit(f"🔹Enter Your Batch Name\n\n🔹Please wait...10sec...⏳ for use\n\n🔹𝐍𝐚𝐦𝐞 » `{file_name}`)
+    await editable.edit(f"🔹Enter Your Batch Name\n\n🔹Please wait...10sec...⏳ for use\n\n🔹𝐍𝐚𝐦𝐞 » `{file_name}`")
     try:
         input1: Message = await bot.listen(editable.chat.id, timeout=10)
         raw_text0 = input1.text
