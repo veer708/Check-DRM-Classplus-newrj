@@ -435,6 +435,7 @@ async def txt_handler(bot: Client, m: Message):
     await input6.delete(True)
     await editable.delete()
 
+    thumb = input6
     if input6.photo:
         thumb = await input6.download()
     elif raw_text6.startswith("http://") or raw_text6.startswith("https://"):
