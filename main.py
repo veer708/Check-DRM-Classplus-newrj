@@ -327,7 +327,7 @@ async def youtube_to_txt(client, message: Message):
 
 @bot.on_message(filters.command(["saini"]) )
 async def txt_handler(bot: Client, m: Message):
-    editable = await m.reply_text(f"<pre><code>🔹Hi I am Poweful TXT Downloader📥 Bot.\n🔹Send me the txt file and wait.")
+    editable = await m.reply_text(f"<pre><code>🔹Hi I am Poweful TXT Downloader📥 Bot.\n🔹Send me the txt file and wait.</code></pre>")
     input: Message = await bot.listen(editable.chat.id)
     x = await input.download()
     await input.delete(True)
@@ -346,7 +346,7 @@ async def txt_handler(bot: Client, m: Message):
         os.remove(x)
         return
    
-    await editable.edit(f"<pre><code>🔹Total 🔗 links found are {len(links)}\n🔹Send From where you want to download")
+    await editable.edit(f"<pre><code>🔹Total 🔗 links found are {len(links)}\n🔹Send From where you want to download</code></pre>")
     input0: Message = await bot.listen(editable.chat.id)
     raw_text = input0.text
     await input0.delete(True)
@@ -427,7 +427,7 @@ async def txt_handler(bot: Client, m: Message):
         thumb == "no"
 
     await m.reply_text(
-        f"<pre><code>**🎯Target Batch :** `{b_name}`</code></pre>"
+        f"<pre><code>🎯Target Batch : {b_name}</code></pre>"
     )
 
     count =int(raw_text)    
