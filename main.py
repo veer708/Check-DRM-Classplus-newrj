@@ -445,7 +445,7 @@ async def txt_handler(bot: Client, m: Message):
         thumb = raw_text6
 
     target_message = f"<pre><code>🎯Target Batch : {b_name}</code></pre>"
-    await m.reply_text(target_message)
+    await m.reply_text(target_message, quote=True)
     
     count =int(raw_text)    
     try:
@@ -461,6 +461,29 @@ async def txt_handler(bot: Client, m: Message):
                         text = await resp.text()
                         url = re.search(r"(https://.*?playlist.m3u8.*?)\"", text).group(1)
 
+            if "/playlist.m3u8" in url :
+                if "classplusapp.com/drm/" in url:
+                    url = "https://dragoapi.vercel.app/classplus?link=" + url
+                    print(url)
+                else: 
+                    url = url    
+
+                print("mpd check")
+                async with ClientSession() as session:
+                    async with session.get(f"https://dragoapi.vercel.app/classplus?link={url}") as resp:
+                        if resp.status == 200:
+                            data = await resp.json()
+                            key = data.get("key")
+                            print(key)
+                            await m.reply_text(f"got keys form api : \n`{key}`")
+                        else:
+                            print(f"Failed to get key, status code: {resp.status}")
+                            await m.reply_text(f"Failed to get key from API, status code: {resp.status}")
+
+            if "classplusapp.com/drm/" in url:
+                cmd= f" yt-dlp -k --allow-unplayable-formats -f bestvideo.{quality} --fixup never {url} "
+                print("counted")
+                
             if "acecwply" in url:
                 cmd = f'yt-dlp -o "{name}.%(ext)s" -f "bestvideo[height<={raw_text2}]+bestaudio" --hls-prefer-ffmpeg --no-keep-video --remux-video mkv --no-warning "{url}"'
                 
