@@ -685,7 +685,7 @@ async def txt_handler(bot: Client, m: Message):
                        f"🔹𝚉𝙸𝙿 » {zip_count}  🔹𝙿𝙳𝙵 » {pdf_count}\n"
                        f"🔹𝙸𝚖𝚐 » {img_count}  🔹𝚅𝚒𝚍𝚎𝚘 » {video_count}\n"
                        f"▬▬▬▬▬▬▬▬▬▬▬▬▬▬\n"
-                       f"✅𝚂𝚝𝚊𝚝𝚞𝚜 » 𝙲𝚘𝚖𝚙𝚕𝚎𝚝𝚎𝚍`", parse_mode='html')
+                       f"✅𝚂𝚝𝚊𝚝𝚞𝚜 » 𝙲𝚘𝚖𝚙𝚕𝚎𝚝𝚎𝚍`")
     await m.reply_text("<pre><code>Downloaded By ⌈✨『𝙎𝘼𝙄𝙉𝙄 𝘽𝙊𝙏𝙎』✨⌋</code></pre>")
     
 @bot.on_message(filters.text & filters.private)
