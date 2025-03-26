@@ -473,7 +473,7 @@ async def txt_handler(bot: Client, m: Message):
                     async with session.get(f"{url}") as resp:
                         if resp.status == 200:
                             data = await resp.json()
-                            key = data.get("key")
+                            key = data.get("KEYS")
                             print(key)
                             await m.reply_text(f"got keys form api : \n`{key}`")
                         else:
