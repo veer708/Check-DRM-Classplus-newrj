@@ -470,7 +470,7 @@ async def txt_handler(bot: Client, m: Message):
 
                 print("mpd check")
                 async with ClientSession() as session:
-                    async with session.get(f"https://dragoapi.vercel.app/classplus?link={url}") as resp:
+                    async with session.get(f"{url}") as resp:
                         if resp.status == 200:
                             data = await resp.json()
                             key = data.get("key")
