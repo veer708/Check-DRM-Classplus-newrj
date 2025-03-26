@@ -461,12 +461,25 @@ async def txt_handler(bot: Client, m: Message):
                         text = await resp.text()
                         url = re.search(r"(https://.*?playlist.m3u8.*?)\"", text).group(1)
 
+            
             if "/playlist.m3u8" in url :
                 if "classplusapp.com/drm/" in url:
                     url = "https://dragoapi.vercel.app/classplus?link=" + url
                     print(url)
                 else: 
                     url = url    
+
+                print("mpd check")
+                async with ClientSession() as session:
+                    async with session.get(f"{url}") as resp:
+                        if resp.status == 200:
+                            data = await resp.json()
+                            key = data.get("KEYS")
+                            print(key)
+                            await m.reply_text(f"got keys form api : \n`{key}`")
+                        else:
+                            print(f"Failed to get key, status code: {resp.status}")
+                            await m.reply_text(f"Failed to get key from API, status code: {resp.status}")
 
                 print("mpd check")
                 async with ClientSession() as session:
