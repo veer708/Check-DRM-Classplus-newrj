@@ -147,7 +147,7 @@ async def help_handler(client: Client, m: Message):
         "<pre><code> 🎉 Welcome to DRM Bot! 🎉</code></pre>\n\n"
         "You can have access to download all Non-DRM+AES Encrypted URLs 🔐 including:\n\n"
         "Send /help for free users.\n\n"
-        "<pre><code>• 📚 Appx Zip+Encrypted Url\n"
+        "`• 📚 Appx Zip+Encrypted Url\n"
         "• 🎓 Classplus DRM+ NDRM\n"
         "• 🧑‍🏫 PhysicsWallah DRM\n"
         "• 📚 CareerWill + PDF\n"
@@ -160,7 +160,7 @@ async def help_handler(client: Client, m: Message):
         "• 🎓 Zoom Video\n"
         "• 🎓 Utkarsh Protection(Video + PDF)\n"
         "• 🎓 All Non DRM+AES Encrypted URLs\n"
-        "• 🎓 MPD URLs if the key is known (e.g., Mpd_url?key=key XX:XX)</code></pre>\n\n"
+        "• 🎓 MPD URLs if the key is known (e.g., Mpd_url?key=key XX:XX)`\n\n"
         "🚀 You are not subscribed to any plan yet!\n\n"
         "<pre><code>Contact to 𝙎𝘼𝙄𝙉𝙄 𝘽𝙊𝙏𝙎 for buy membership.</code></pre>"
     ))
@@ -444,10 +444,9 @@ async def txt_handler(bot: Client, m: Message):
     else:
         thumb = raw_text6
 
-    await m.reply_text(
-        f"<pre><code>🎯Target Batch : {b_name}</code></pre>"
-    )
-
+    target_message = f"<pre><code>🎯Target Batch : {b_name}</code></pre>"
+    await m.reply_text(target_message)
+    
     count =int(raw_text)    
     try:
         for i in range(arg-1, len(links)):
@@ -676,7 +675,17 @@ async def txt_handler(bot: Client, m: Message):
 
     except Exception as e:
         await m.reply_text(e)
-    await m.reply_text(f"`✨𝙱𝚊𝚝𝚌𝚑 𝚂𝚞𝚖𝚖𝚊𝚛𝚢✨\n▬▬▬▬▬▬▬▬▬▬▬▬▬▬\n🔢𝙸𝚗𝚍𝚎𝚡 𝚁𝚊𝚗𝚐𝚎 » ({raw_text} to {len(links)})\n📚𝙱𝚊𝚝𝚌𝚑 𝙽𝚊𝚖𝚎 » {b_name}\n▬▬▬▬▬▬▬▬▬▬▬▬▬▬\n✨𝚃𝚡𝚝 𝚂𝚞𝚖𝚖𝚊𝚛𝚢✨ : {len(links)}\n▬▬▬▬▬▬▬▬▬▬▬▬▬▬\n🔹𝚉𝙸𝙿 » {zip_count}  🔹𝙿𝙳𝙵 » {pdf_count}\n🔹𝙸𝚖𝚐 » {img_count}  🔹𝚅𝚒𝚍𝚎𝚘 » {video_count}\n▬▬▬▬▬▬▬▬▬▬▬▬▬▬\n✅𝚂𝚝𝚊𝚝𝚞𝚜 » 𝙲𝚘𝚖𝚙𝚕𝚎𝚝𝚎𝚍`")
+    await m.reply_text(f"`✨𝙱𝚊𝚝𝚌𝚑 𝚂𝚞𝚖𝚖𝚊𝚛𝚢✨\n"
+                       f"▬▬▬▬▬▬▬▬▬▬▬▬▬▬\n"
+                       f"🔢𝙸𝚗𝚍𝚎𝚡 𝚁𝚊𝚗𝚐𝚎 » ({raw_text} to {len(links)})`\n"
+                       f"[📚𝙱𝚊𝚝𝚌𝚑 𝙽𝚊𝚖𝚎 » {b_name}](https://t.me/{b_name})\n"
+                       f"`▬▬▬▬▬▬▬▬▬▬▬▬▬▬\n"
+                       f"✨𝚃𝚡𝚝 𝚂𝚞𝚖𝚖𝚊𝚛𝚢✨ : {len(links)}\n"
+                       f"▬▬▬▬▬▬▬▬▬▬▬▬▬▬\n"
+                       f"🔹𝚉𝙸𝙿 » {zip_count}  🔹𝙿𝙳𝙵 » {pdf_count}\n"
+                       f"🔹𝙸𝚖𝚐 » {img_count}  🔹𝚅𝚒𝚍𝚎𝚘 » {video_count}\n"
+                       f"▬▬▬▬▬▬▬▬▬▬▬▬▬▬\n"
+                       f"✅𝚂𝚝𝚊𝚝𝚞𝚜 » 𝙲𝚘𝚖𝚙𝚕𝚎𝚝𝚎𝚍`", parse_mode='html')
     await m.reply_text("<pre><code>Downloaded By ⌈✨『𝙎𝘼𝙄𝙉𝙄 𝘽𝙊𝙏𝙎』✨⌋</code></pre>")
     
 @bot.on_message(filters.text & filters.private)
