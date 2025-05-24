@@ -716,7 +716,7 @@ async def txt_handler(bot: Client, m: Message):
 
             except Exception as e:
                 await m.reply_text(
-                    f'⚠️ 𝐃𝐨𝐰𝐧𝐥𝐨𝐚𝐝𝐢𝐧𝐠 𝐈𝐧𝐭𝐞𝐫𝐮𝐩𝐭𝐞𝐝\n\n⚠️ 𝐓𝐢𝐭𝐥𝐞 » `{name}`\n🔗𝐋𝐢𝐧𝐤 » <a href="{link0}">__**Click Here to See Link**__</a>\n\n✦𝐁𝐨𝐭 𝐌𝐚𝐝𝐞 𝐁𝐲 ✦ `🇸‌🇦‌🇮‌🇳‌🇮‌🐦`'
+                    f'⚠️ 𝐃𝐨𝐰𝐧𝐥𝐨𝐚𝐝𝐢𝐧𝐠 𝐈𝐧𝐭𝐞𝐫𝐮𝐩𝐭𝐞𝐝\n\n⚠️ 𝐓𝐢𝐭𝐥𝐞 » `{name}`\n🔗𝐋𝐢𝐧𝐤 » <a href="{link0}">__**Click Here to See Link**__</a>\n\n✦𝐁𝐨𝐭 𝐌𝐚𝐝𝐞 𝐁𝐲 ✦ `꧁༒♛L͢u͢c͢k͢y͢♛༒꧂🐦`'
                 )
                 count += 1
                 continue
@@ -734,7 +734,7 @@ async def txt_handler(bot: Client, m: Message):
                        f"🔹𝙸𝚖𝚐 » {img_count}  🔹𝚅𝚒𝚍𝚎𝚘 » {video_count}\n"
                        f"▬▬▬▬▬▬▬▬▬▬▬▬▬▬\n"
                        f"✅𝚂𝚝𝚊𝚝𝚞𝚜 » 𝙲𝚘𝚖𝚙𝚕𝚎𝚝𝚎𝚍`")
-    await m.reply_text("<pre><code>Downloaded By ⌈✨『@Luckyji930』✨⌋</code></pre>")
+    await m.reply_text("<pre><code>Downloaded By ⌈✨『꧁༒♛L͢u͢c͢k͢y͢♛༒꧂』✨⌋</code></pre>")
     
 @bot.on_message(filters.text & filters.private)
 async def text_handler(bot: Client, m: Message):
@@ -878,7 +878,7 @@ async def text_handler(bot: Client, m: Message):
 
             try:
                 cc = f'🎞️𝐓𝐢𝐭𝐥𝐞 » `{name}` [{res}].mp4\n🔗𝐋𝐢𝐧𝐤 » <a href="{link}">__**CLICK HERE**__</a>\n\n🌟𝐄𝐱𝐭𝐫𝐚𝐜𝐭𝐞𝐝 𝐁𝐲 » `Lυƈƙყ Bσƚ`'
-                cc1 = f'📕𝐓𝐢𝐭𝐥𝐞 » `{name}`\n🔗𝐋𝐢𝐧𝐤 » <a href="{link}">__**CLICK HERE**__</a>\n\n🌟𝐄𝐱𝐭𝐫𝐚𝐜𝐭𝐞𝐝 𝐁𝐲 » `𝙎𝘼𝙄𝙉𝙄 𝘽𝙊𝙏𝙎`'
+                cc1 = f'📕𝐓𝐢𝐭𝐥𝐞 » `{name}`\n🔗𝐋𝐢𝐧𝐤 » <a href="{link}">__**CLICK HERE**__</a>\n\n🌟𝐄𝐱𝐭𝐫𝐚𝐜𝐭𝐞𝐝 𝐁𝐲 » `꧁༒♛L͢u͢c͢k͢y͢ B͢o͢t͢♛༒꧂`'
                 ccyt = f'🎞️𝐓𝐢𝐭𝐥𝐞 » `{name}` .mp4\n🔗𝐋𝐢𝐧𝐤 » <a href="{link}">__**Click Here to Watch Stream**__</a>\n\n🌟𝐄𝐱𝐭𝐫𝐚𝐜𝐭𝐞𝐝 𝐁𝐲 » `Lυƈƙყ Bσƚ`'
                 cccpvod = f'🎞️𝐓𝐢𝐭𝐥𝐞 » `{name}` .mp4\n<a href="{linkcpvod}">__**Click Here to Watch Stream**__</a>\n🔗𝐋𝐢𝐧𝐤 » {link}\n🌟𝐄𝐱𝐭𝐫𝐚𝐜𝐭𝐞𝐝 𝐁𝐲 » `Lυƈƙყ Bσƚ`'
                 
