@@ -35,7 +35,7 @@ async def show_random_emojis(message):
     emoji_message = await message.reply_text(' '.join(random.choices(emojis, k=1)))
     return emoji_message
     
-credit ="@TeamRaaz_official" 
+credit ="@Luckyji930" 
 # Initialize the bot
 bot = Client(
     "bot",
@@ -115,8 +115,8 @@ import random
 keyboard = InlineKeyboardMarkup(
     [
         [
-            InlineKeyboardButton(text="📞 Contact", url="https://t.me/raj0056772"),
-            InlineKeyboardButton(text="🛠️ Help", url="https://t.me/TeamRaaz_official"),
+            InlineKeyboardButton(text="📞 Contact", url="http://t.me/MrLucky7e7_bot"),
+            InlineKeyboardButton(text="🛠️ Help", url="http://t.me/MrLucky7e7_bot"),
         ],
     ]
 )
@@ -125,8 +125,8 @@ keyboard = InlineKeyboardMarkup(
 Busy = InlineKeyboardMarkup(
     [
         [
-            InlineKeyboardButton(text="📞 Contact", url="https://t.me/raj0056772"),
-            InlineKeyboardButton(text="🛠️ Help", url="https://t.me/TeamRaaz_official"),
+            InlineKeyboardButton(text="📞 Contact", url="http://t.me/MrLucky7e7_bot"),
+            InlineKeyboardButton(text="🛠️ Help", url="http://t.me/MrLucky7e7_bot"),
         ],
     ]
 )
@@ -162,7 +162,7 @@ async def help_handler(client: Client, m: Message):
         "• 🎓 All Non DRM+AES Encrypted URLs\n"
         "• 🎓 MPD URLs if the key is known (e.g., Mpd_url?key=key XX:XX)`\n\n"
         "🚀 You are not subscribed to any plan yet!\n\n"
-        "<pre><code>Contact to https://t.me/raj0056772 for buy membership.</code></pre>"
+        "<pre><code>Contact to http://t.me/MrLucky7e7_bot for buy membership.</code></pre>"
     ))
 
 @bot.on_message(filters.command(["help"]))
@@ -170,7 +170,7 @@ async def txt_handler(client: Client, m: Message):
     await bot.send_message(m.chat.id, text= (
         "<pre><code> 🎉Congrats! You are using TeamRaaz_official 𝘽𝙊𝙏𝙎:</code></pre>\n┣\n"
         "┣⪼01. Send /start - To Check Bot \n┣\n"
-        "┣⪼02. Send /saini - for extract txt file\n┣\n"
+        "┣⪼02. Send /lucky - for extract txt file\n┣\n"
         "┣⪼03. Send /y2t - YouTube to .txt Convert\n┣\n"
         "┣⪼04. Send /logs - To see Bot Working Logs\n┣\n"
         "┣⪼05. Send /cookies - To update YT cookies.\n┣\n"
@@ -221,7 +221,7 @@ async def start_command(bot: Client, message: Message):
     random_image_url = random.choice(image_urls)
     caption = (
         "🌟 Welcome Boss😸! 🌟\n\n"
-        "➽ I am Powerful DRM Uploader Bot 📥\n\n➽ 𝐔𝐬𝐞 /drm for use this Bot.\n\n<pre><code> 𝐌𝐚𝐝𝐞 𝐁𝐲 : @TeamRaaz_official 🦁</code></pre>"
+        "➽ I am Powerful DRM Uploader Bot 📥\n\n➽ 𝐔𝐬𝐞 /drm for use this Bot.\n\n<pre><code> 𝐌𝐚𝐝𝐞 𝐁𝐲 : @Luckyji930 🦁</code></pre>"
     )
     
     await bot.send_photo(
@@ -407,9 +407,9 @@ async def txt_handler(bot: Client, m: Message):
     raw_text3 = input3.text
     await input3.delete(True)
     # Default credit message with link
-    credit = "️[@TeamRaaz_official 🕊️](https://t.me/TeamRaaz_official)"
+    credit = "️[@Luckyji930 🕊️](http://t.me/MrLucky7e7_bot)"
     if raw_text3 == '1':
-        CR = '[@TeamRaaz_official 🕊️](https://t.me/TeamRaaz_official)'
+        CR = '[@Luckyji930 🕊️](http://t.me/MrLucky7e7_bot)'
     elif raw_text3:
         try:
             text, link = raw_text3.split(',')
@@ -704,7 +704,7 @@ async def txt_handler(bot: Client, m: Message):
                            f'┣━🔗𝐋𝐢𝐧𝐤 » <a href="{link0}">__**Click Here to Open Link**__</a>\n┃\n' \
                            f'╰━━🖼️𝐓𝐡𝐮𝐦𝐛𝐧𝐚𝐢𝐥 » <a href="{raw_text6}">__**Thumb Link**__</a>\n\n' \
                            f"➽ 𝐔𝐬𝐞 /stop for stop the Bot.\n\n" \
-                           f"➽ 𝐁𝐨𝐭 𝐌𝐚𝐝𝐞 𝐁𝐲 ✦ `@TeamRaaz_official🐦`"
+                           f"➽ 𝐁𝐨𝐭 𝐌𝐚𝐝𝐞 𝐁𝐲 ✦ `@Luckyji930🐦`"
                     prog = await m.reply_text(Show, disable_web_page_preview=True)
                     res_file = await helper.download_video(url, cmd, name)
                     filename = res_file
@@ -734,7 +734,7 @@ async def txt_handler(bot: Client, m: Message):
                        f"🔹𝙸𝚖𝚐 » {img_count}  🔹𝚅𝚒𝚍𝚎𝚘 » {video_count}\n"
                        f"▬▬▬▬▬▬▬▬▬▬▬▬▬▬\n"
                        f"✅𝚂𝚝𝚊𝚝𝚞𝚜 » 𝙲𝚘𝚖𝚙𝚕𝚎𝚝𝚎𝚍`")
-    await m.reply_text("<pre><code>Downloaded By ⌈✨『@TeamRaaz_official』✨⌋</code></pre>")
+    await m.reply_text("<pre><code>Downloaded By ⌈✨『@Luckyji930』✨⌋</code></pre>")
     
 @bot.on_message(filters.text & filters.private)
 async def text_handler(bot: Client, m: Message):
